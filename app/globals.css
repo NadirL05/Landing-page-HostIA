@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Fonts ───────────────────────────────────────────────────────────── */
+
+body { font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif); }
+.ff  { font-family: var(--font-display, 'Fraunces', Georgia, serif); }
+
+/* ── Keyframes ───────────────────────────────────────────────────────── */
+
+@keyframes ring {
+  0%   { transform: scale(1); opacity: 0.55; }
+  100% { transform: scale(2.6); opacity: 0; }
+}
+
+@keyframes wbar {
+  0%, 100% { height: 4px; }
+  50%       { height: 22px; }
+}
+
+@keyframes fu {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pfloat {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(5px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Animation classes ───────────────────────────────────────────────── */
+
+.ra { animation: ring 2.8s ease-out 0.0s infinite; }
+.rb { animation: ring 2.8s ease-out 0.9s infinite; }
+.rc { animation: ring 2.8s ease-out 1.8s infinite; }
+
+.wb  { width: 3px; border-radius: 2px; background: #f5a623; display: inline-block; margin: 0 1.5px; }
+.wb:nth-child(1)  { animation: wbar 0.80s ease-in-out 0.00s infinite; }
+.wb:nth-child(2)  { animation: wbar 0.90s ease-in-out 0.10s infinite; }
+.wb:nth-child(3)  { animation: wbar 0.70s ease-in-out 0.20s infinite; }
+.wb:nth-child(4)  { animation: wbar 1.00s ease-in-out 0.05s infinite; }
+.wb:nth-child(5)  { animation: wbar 0.75s ease-in-out 0.15s infinite; }
+.wb:nth-child(6)  { animation: wbar 0.85s ease-in-out 0.25s infinite; }
+.wb:nth-child(7)  { animation: wbar 0.95s ease-in-out 0.08s infinite; }
+.wb:nth-child(8)  { animation: wbar 0.72s ease-in-out 0.18s infinite; }
+.wb:nth-child(9)  { animation: wbar 1.10s ease-in-out 0.03s infinite; }
+.wb:nth-child(10) { animation: wbar 0.82s ease-in-out 0.12s infinite; }
+
+.m0 { animation: appear 0.35s ease 0.6s both; }
+.m1 { animation: appear 0.35s ease 1.6s both; }
+.m2 { animation: appear 0.35s ease 2.6s both; }
+.m3 { animation: appear 0.35s ease 3.6s both; }
+.m4 { animation: appear 0.35s ease 4.6s both; }
+.m5 { animation: appear 0.35s ease 5.6s both; }
+
+.phone-float { animation: pfloat 5s ease-in-out infinite; }
+
+.he1 { animation: fu 0.7s ease 0.10s both; }
+.he2 { animation: fu 0.7s ease 0.25s both; }
+.he3 { animation: fu 0.7s ease 0.40s both; }
+.he4 { animation: fu 0.7s ease 0.55s both; }
+
+.scard { transition: border-color 0.2s; }
+.scard:hover { border-color: rgba(245,166,35,0.3) !important; }
+.fcard { transition: border-color 0.2s, background 0.2s; }
+.fcard:hover { border-color: rgba(245,166,35,0.22) !important; background: #101c30 !important; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; }
+}
