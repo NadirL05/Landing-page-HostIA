@@ -1,35 +1,42 @@
 import type { Metadata } from "next";
-import { Fraunces, Plus_Jakarta_Sans } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
-
-const fraunces = Fraunces({
-  subsets: ["latin"],
-  axes: ["opsz"],
-  style: ["normal", "italic"],
-  variable: "--font-display",
-  display: "swap",
-});
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: ["400", "500", "600", "700", "800"],
   variable: "--font-body",
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "HostIA — Agent IA vocal pour restaurants",
-  description: "HostIA répond à vos appels, prend les réservations et commandes en français naturel, envoie le paiement par SMS et notifie la cuisine — 24h/24.",
+  title: "HostIA — Agent vocal IA pour restaurants | Réservations 24/7",
+  description:
+    "L'agent vocal IA qui prend tous les appels de ton restaurant. 0 résa ratée, acomptes encaissés automatiquement, cuisine notifiée. À partir de 150€/mois.",
+  metadataBase: new URL("https://hostia.agentimpact.fr"),
+  alternates: { canonical: "https://hostia.agentimpact.fr" },
+  openGraph: {
+    title: "HostIA — Agent vocal IA pour restaurants",
+    description:
+      "0 appel raté. Réservations 24/7, acomptes Stripe, notification cuisine. À partir de 150€/mois.",
+    url: "https://hostia.agentimpact.fr",
+    siteName: "HostIA",
+    locale: "fr_FR",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "HostIA — Agent vocal IA pour restaurants",
+    description: "0 appel raté. Réservations 24/7. À partir de 150€/mois.",
+  },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="fr" className={`${fraunces.variable} ${plusJakartaSans.variable}`}>
-      <body>{children}</body>
+    <html lang="fr" className={plusJakartaSans.variable}>
+      <body className="font-[--font-body]">{children}</body>
     </html>
   );
 }
