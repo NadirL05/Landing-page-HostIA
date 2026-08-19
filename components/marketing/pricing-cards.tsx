@@ -20,7 +20,7 @@ export function PricingCards({ ctaLabel = "Choisir" }: { ctaLabel?: string }) {
             style={{
               borderRadius: 28,
               padding: 32,
-              boxShadow: featured ? "0 8px 48px rgba(160,120,48,0.14)" : "0 2px 16px rgba(26,18,9,0.06)",
+              boxShadow: featured ? "0 0 64px rgba(212,175,55,0.14)" : "none",
               position: "relative",
               display: "flex",
               flexDirection: "column",
