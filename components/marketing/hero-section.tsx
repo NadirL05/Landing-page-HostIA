@@ -145,7 +145,7 @@ export function HeroSection() {
           en braise) qui l'a rempli en direct. C'est ce visuel, pas une carte
           de dashboard, qui doit dire "restaurant" au premier coup d'œil.
         */}
-        <div className="hero-visual" style={{ display: "flex", justifyContent: "center", position: "relative" }}>
+        <div className="hero-visual" style={{ display: "flex", justifyContent: "center", position: "relative", minWidth: 0 }}>
           {/*
             Guéridon bas-poly posé au sol obsidian, comme aperçu derrière le
             ticket — charge en 3D uniquement une fois le hero visible
@@ -168,7 +168,8 @@ export function HeroSection() {
             className="hero-stagger ticket-card"
             style={
               {
-                width: 300,
+                width: "100%",
+                maxWidth: 300,
                 padding: "28px 26px 24px",
                 position: "relative",
                 zIndex: 1,

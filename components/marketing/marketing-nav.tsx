@@ -53,6 +53,12 @@ export function MarketingNav() {
         zIndex: 100,
         borderBottom: scrolled || menuOpen ? "1px solid var(--border-subtle)" : "1px solid transparent",
         transition: "border-color var(--duration-normal) var(--ease-spring), background var(--duration-normal) var(--ease-spring)",
+        // Header fixe plein bleed : sous l'encoche iOS en portrait (haut) et
+        // sous l'encoche/le contour arrondi en paysage (gauche/droite), pour
+        // que les liens ne se retrouvent jamais sous une zone system UI.
+        paddingTop: "env(safe-area-inset-top, 0px)",
+        paddingLeft: "env(safe-area-inset-left, 0px)",
+        paddingRight: "env(safe-area-inset-right, 0px)",
       }}
     >
       <nav
