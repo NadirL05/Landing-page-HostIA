@@ -1,5 +1,6 @@
 import type { CSSProperties } from "react";
 import { SIGNUP_URL, DEMO_URL } from "@/lib/seo/schemas";
+import { Hero3D } from "@/components/marketing/hero-scene/hero-3d";
 
 const TICKET_LINES = [
   { k: "TABLE", v: "4 · Terrasse" },
@@ -145,6 +146,14 @@ export function HeroSection() {
           de dashboard, qui doit dire "restaurant" au premier coup d'œil.
         */}
         <div className="hero-visual" style={{ display: "flex", justifyContent: "center", position: "relative" }}>
+          {/*
+            Guéridon bas-poly posé au sol obsidian, comme aperçu derrière le
+            ticket — charge en 3D uniquement une fois le hero visible
+            (voir Hero3D), masqué < 900px et sans WebGL.
+          */}
+          <div className="hero-3d-frame">
+            <Hero3D />
+          </div>
           <div
             aria-hidden="true"
             style={{
@@ -162,6 +171,7 @@ export function HeroSection() {
                 width: 300,
                 padding: "28px 26px 24px",
                 position: "relative",
+                zIndex: 1,
                 transform: "rotate(-2.5deg)",
                 "--stagger-delay": "320ms",
               } as CSSProperties

@@ -278,6 +278,29 @@ body {
   }
 }
 
+/*
+ * Diorama 3D du bistrot — posé au sol obsidian derrière le ticket, comme un
+ * guéridon qu'on apercevrait par la vitre. Masqué sous 900px : à cette
+ * taille le ticket occupe déjà tout l'espace visuel disponible, et le
+ * budget JS/CPU mobile ne doit pas payer pour un élément qui serait
+ * invisible ou tronqué de toute façon.
+ */
+.hero-3d-frame {
+  display: none;
+}
+
+@media (min-width: 900px) {
+  .hero-3d-frame {
+    display: block;
+    position: absolute;
+    left: -64px;
+    bottom: -56px;
+    width: 280px;
+    height: 280px;
+    z-index: 0;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero-live-dot {
     animation: none;
