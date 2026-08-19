@@ -4,7 +4,7 @@ import { MarketingNav } from "@/components/marketing/marketing-nav";
 import { PricingCards } from "@/components/marketing/pricing-cards";
 import { FaqSection } from "@/components/marketing/faq-section";
 import { Footer } from "@/components/marketing/footer";
-import { SITE_URL } from "@/lib/seo/schemas";
+import { SITE_URL, softwareApplicationSchema, breadcrumbSchema } from "@/lib/seo/schemas";
 
 export const metadata: Metadata = {
   title: "Tarifs | HostIA",
@@ -20,7 +20,13 @@ export const metadata: Metadata = {
 export default function PricingPage() {
   return (
     <>
-      <JsonLd src="/schema/software-application.json" />
+      <JsonLd data={softwareApplicationSchema()} />
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Accueil", path: "/" },
+          { name: "Tarifs", path: "/pricing" },
+        ])}
+      />
       <MarketingNav />
       <main style={{ padding: "0 20px 96px", paddingTop: 160 }}>
         <div style={{ maxWidth: 1120, margin: "0 auto", textAlign: "center" }}>

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { JsonLd } from "@/components/seo/json-ld";
 import { AnimatedSection } from "@/components/marketing/animated-section";
-import { HOSTIA_FAQ } from "@/lib/seo/schemas";
+import { HOSTIA_FAQ, faqSchema } from "@/lib/seo/schemas";
 
 function ChevronIcon({ open }: { open: boolean }) {
   return (
@@ -19,7 +19,7 @@ export function FaqSection() {
 
   return (
     <AnimatedSection id="faq" style={{ padding: "0 20px 96px" }}>
-      <JsonLd src="/schema/faq.json" />
+      <JsonLd data={faqSchema()} />
       <div style={{ maxWidth: 680, margin: "0 auto" }}>
         <h2 className="font-serif" style={{ fontSize: "clamp(28px, 4vw, 40px)", lineHeight: "clamp(34px, 5vw, 46px)", fontWeight: 600, marginBottom: 40 }}>
           Questions fréquentes

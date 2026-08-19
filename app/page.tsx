@@ -1,4 +1,5 @@
 import { JsonLd } from "@/components/seo/json-ld";
+import { organizationSchema, softwareApplicationSchema } from "@/lib/seo/schemas";
 import { MarketingNav } from "@/components/marketing/marketing-nav";
 import { HeroSection } from "@/components/marketing/hero-section";
 import { PainSection } from "@/components/marketing/pain-section";
@@ -10,8 +11,8 @@ import { Footer } from "@/components/marketing/footer";
 export default function Home() {
   return (
     <>
-      <JsonLd src="/schema/organization.json" />
-      <JsonLd src="/schema/software-application.json" />
+      <JsonLd data={organizationSchema()} />
+      <JsonLd data={softwareApplicationSchema()} />
       <MarketingNav />
       <main>
         <HeroSection />

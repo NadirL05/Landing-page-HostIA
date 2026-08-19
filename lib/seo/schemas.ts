@@ -97,7 +97,14 @@ export function softwareApplicationSchema() {
       name: tier.name,
       price: String(tier.price),
       priceCurrency: "EUR",
-      billingIncrement: "P1M",
+      // `billingIncrement` n'existe pas sur schema.org/Offer — la période
+      // de facturation mensuelle est portée par priceSpecification.
+      priceSpecification: {
+        "@type": "UnitPriceSpecification",
+        price: String(tier.price),
+        priceCurrency: "EUR",
+        billingDuration: "P1M",
+      },
     })),
     featureList: [
       "Réponse téléphonique automatique en français naturel",
@@ -136,6 +143,25 @@ export const HOSTIA_FAQ: readonly FaqItem[] = [
       "Non. HostIA traite uniquement les appels téléphoniques entrants. Tout ce qui sort de ce périmètre est transféré à l'équipe ou noté pour rappel.",
   },
 ];
+
+export interface BreadcrumbItem {
+  name: string;
+  path: string;
+}
+
+/** BreadcrumbList — /pricing est une route distincte de la home. */
+export function breadcrumbSchema(items: readonly BreadcrumbItem[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      item: `${SITE_URL}${item.path}`,
+    })),
+  };
+}
 
 export function faqSchema(items: readonly FaqItem[] = HOSTIA_FAQ) {
   return {
