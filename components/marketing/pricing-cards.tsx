@@ -1,54 +1,107 @@
+import type { CSSProperties } from "react";
 import { PRICING_TIERS, CALENDLY_URL } from "@/lib/seo/schemas";
 
-function CheckIcon() {
+function CheckIcon({ ink }: { ink?: boolean }) {
   return (
     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-      <path d="M3 8l3.5 3.5L13 4.5" stroke="var(--color-champagne)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <path
+        d="M3 8l3.5 3.5L13 4.5"
+        stroke={ink ? "var(--color-ticket-ink)" : "var(--color-champagne)"}
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </svg>
   );
 }
 
+/*
+ * Le plan recommandé n'est pas mis en avant par une pilule flottante : il
+ * est rendu comme un vrai ticket de commande en papier crème posé au milieu
+ * des deux autres formules "de nuit" — la carte que le patron reconnaît
+ * immédiatement, celle qu'on scotche à côté de la caisse. Les deux autres
+ * plans restent en verre sombre pour que le contraste papier/nuit fasse le
+ * travail de hiérarchie, pas une bordure plus épaisse.
+ */
 export function PricingCards({ ctaLabel = "Choisir" }: { ctaLabel?: string }) {
   return (
-    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 16, alignItems: "stretch" }}>
+    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 24, alignItems: "stretch" }}>
       {PRICING_TIERS.map((tier, i) => {
         const featured = i === 1;
         return (
           <div
             key={tier.name}
-            className={`pricing-card ${featured ? "pricing-card--featured material-regular" : "material-ultrathin"}`}
+            className={featured ? "pricing-card pricing-card--featured ticket-card" : "pricing-card material-ultrathin"}
             style={{
-              borderRadius: 28,
-              padding: 32,
-              boxShadow: featured ? "0 0 64px rgba(212,175,55,0.14)" : "none",
+              borderRadius: featured ? 6 : 28,
+              padding: featured ? "40px 30px" : 32,
               position: "relative",
               display: "flex",
               flexDirection: "column",
               height: "100%",
+              marginTop: featured ? 10 : 0,
+              marginBottom: featured ? 10 : 0,
             }}
           >
             {featured ? (
-              <div className="font-mono" style={{ position: "absolute", top: -14, left: "50%", transform: "translateX(-50%)", background: "var(--gradient-premium)", color: "var(--color-obsidian)", fontSize: 11, fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase", padding: "4px 14px", borderRadius: 8, whiteSpace: "nowrap" }}>
-                Le plus choisi
+              <div
+                className="ticket-stamp"
+                style={{ position: "absolute", top: 20, right: 20, width: 74, height: 74, fontSize: 10, lineHeight: "12px", textAlign: "center", padding: 4 }}
+              >
+                Le plus
+                <br />
+                choisi
               </div>
             ) : null}
-            <p className="font-mono" style={{ fontSize: 12, fontWeight: 500, letterSpacing: "0.07em", textTransform: "uppercase", color: "var(--color-champagne)", marginBottom: 12 }}>
+            <p
+              className="font-mono"
+              style={
+                {
+                  fontSize: 12,
+                  fontWeight: 600,
+                  letterSpacing: "0.07em",
+                  textTransform: "uppercase",
+                  color: featured ? "var(--color-ticket-ink-soft)" : "var(--color-champagne)",
+                  marginBottom: 12,
+                } as CSSProperties
+              }
+            >
               {tier.name}
             </p>
             <div style={{ marginBottom: 12 }}>
-              <span className="font-serif" style={{ fontSize: 48, fontWeight: 700, color: "var(--text-primary)" }}>{tier.price} €</span>
-              <span style={{ fontSize: 15, color: "var(--text-tertiary)", marginLeft: 4 }}>/mois</span>
+              <span className="font-serif" style={{ fontSize: 48, fontWeight: 700, color: featured ? "var(--color-ticket-ink)" : "var(--text-primary)" }}>
+                {tier.price} €
+              </span>
+              <span style={{ fontSize: 15, color: featured ? "var(--color-ticket-ink-soft)" : "var(--text-tertiary)", marginLeft: 4 }}>/mois</span>
             </div>
-            <p style={{ fontSize: 14, lineHeight: "20px", color: "var(--text-secondary)", marginBottom: 24 }}>{tier.description}</p>
+            <p style={{ fontSize: 14, lineHeight: "20px", color: featured ? "var(--color-ticket-ink-soft)" : "var(--text-secondary)", marginBottom: 20 }}>
+              {tier.description}
+            </p>
+            <hr className={featured ? "ticket-divider" : undefined} style={featured ? { marginBottom: 20 } : { border: "none", borderTop: "1px solid var(--border-subtle)", marginBottom: 20 }} />
             <ul style={{ listStyle: "none", padding: 0, margin: "0 0 28px", display: "flex", flexDirection: "column", gap: 10 }}>
               {tier.features.map((f) => (
-                <li key={f} style={{ display: "flex", alignItems: "flex-start", gap: 8, fontSize: 14, color: "var(--text-secondary)", lineHeight: "20px" }}>
-                  <span style={{ marginTop: 2, flexShrink: 0 }}><CheckIcon /></span>
+                <li
+                  key={f}
+                  className={featured ? "font-mono" : undefined}
+                  style={{
+                    display: "flex",
+                    alignItems: "flex-start",
+                    gap: 8,
+                    fontSize: 14,
+                    color: featured ? "var(--color-ticket-ink)" : "var(--text-secondary)",
+                    lineHeight: "20px",
+                  }}
+                >
+                  <span style={{ marginTop: 2, flexShrink: 0 }}><CheckIcon ink={featured} /></span>
                   {f}
                 </li>
               ))}
             </ul>
-            <a href={tier.stripeUrl} className={featured ? "btn-primary" : "btn-secondary"} style={{ width: "100%", marginTop: "auto" }}>
+            <a
+              href={tier.stripeUrl}
+              className={featured ? "btn-primary" : "btn-secondary"}
+              style={{ width: "100%", marginTop: "auto", ...(featured ? { color: "var(--color-obsidian)" } : {}) }}
+            >
               {ctaLabel} {tier.name}
             </a>
           </div>

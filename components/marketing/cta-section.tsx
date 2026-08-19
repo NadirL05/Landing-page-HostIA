@@ -13,7 +13,7 @@ export function CtaSection() {
           transform: "translate(-50%, -50%)",
           width: 900,
           height: 400,
-          background: "radial-gradient(50% 50% at 50% 50%, rgba(212,175,55,0.14) 0%, transparent 75%)",
+          background: "radial-gradient(50% 50% at 50% 50%, rgba(217,119,63,0.16) 0%, transparent 75%)",
           pointerEvents: "none",
         }}
       />

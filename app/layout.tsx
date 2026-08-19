@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Playfair_Display } from "next/font/google";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
@@ -16,6 +16,17 @@ const playfair = Playfair_Display({
   variable: "--font-playfair",
   display: "swap",
 });
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  // Le fond obsidienne est full-bleed derrière l'encoche/la barre de statut
+  // iOS et le geste Android : sans viewport-fit=cover, la disposition garde
+  // une marge de sécurité implicite au lieu de laisser le header/CTA fixes
+  // gérer eux-mêmes les env(safe-area-inset-*) (voir marketing-nav.tsx).
+  viewportFit: "cover",
+  themeColor: "#0a0704",
+};
 
 export const metadata: Metadata = {
   title: "HostIA — L'agent vocal IA qui répond au téléphone des restaurants",
