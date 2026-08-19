@@ -1,0 +1,14 @@
+{
+  "serverInfo": {
+    "name": "HostIA",
+    "version": "1.0.0",
+    "description": "HostIA est un agent vocal IA en français qui répond au téléphone des restaurants indépendants, prend les réservations et notifie l'équipe. Cette carte est descriptive : aucun serveur MCP live n'est exposé publiquement pour le moment, donc aucun champ `transport` n'est déclaré."
+  },
+  "capabilities": {
+    "tools": false,
+    "resources": false,
+    "prompts": false
+  },
+  "homepage": "https://hostia.agentimpact.fr",
+  "contact": "https://calendly.com/nadir-lahyani-agentimpact/30min"
+}

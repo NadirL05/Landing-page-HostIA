@@ -1,0 +1,12 @@
+{
+  "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
+  "skills": [
+    {
+      "name": "hostia-overview",
+      "type": "skill-md",
+      "description": "Vue d'ensemble de HostIA : agent vocal IA en français pour restaurants indépendants (prise de réservation téléphonique, notification d'équipe, lien d'acompte SMS), tarifs et faits clés.",
+      "url": "https://hostia.agentimpact.fr/.well-known/agent-skills/hostia-overview/SKILL.md",
+      "digest": "sha256:ecbf447a8f016e6fa0d48b87e225b0fb127c7e561a3fa0fcf467b81c20129382"
+    }
+  ]
+}

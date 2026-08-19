@@ -1,0 +1,38 @@
+# HostIA
+
+> HostIA est un agent vocal IA en français qui répond au téléphone des
+> restaurants indépendants, prend les réservations et notifie l'équipe.
+
+HostIA prend les appels d'un restaurant en français naturel, enregistre les
+réservations, les reformule avant validation pour éviter les erreurs, envoie
+un lien d'acompte par SMS (si activé) et notifie immédiatement l'équipe en
+salle. Il ne remplace pas l'accueil du restaurant : il traite les appels qui,
+sinon, resteraient sans réponse pendant le service.
+
+## Tarifs
+
+Trois formules mensuelles, sans engagement long :
+
+- Simple — 150€/mois : prise de réservation par téléphone, reformulation,
+  notification de l'équipe.
+- Medium — 350€/mois : tout Simple + lien d'acompte automatique par SMS +
+  gestion des modifications/annulations.
+- Luxe — 650€/mois : tout Medium + appels simultanés + intégration complète
+  aux outils de réservation existants.
+
+## Faits clés
+
+- Langue : français natif, adapté au vocabulaire de la restauration.
+- Cible : restaurants indépendants.
+- Appels simultanés disponibles à partir du plan Luxe.
+- HostIA ne remplace pas le personnel : tout ce qui sort de son périmètre
+  (prise de réservation) est transféré à l'équipe ou noté pour rappel.
+
+## Pages
+
+- [Accueil](https://hostia.agentimpact.fr/) : présentation, fonctionnement, FAQ.
+- [Tarifs](https://hostia.agentimpact.fr/pricing) : détail des trois formules.
+
+## Contact
+
+Prise de rendez-vous : lien Calendly disponible sur https://hostia.agentimpact.fr/
