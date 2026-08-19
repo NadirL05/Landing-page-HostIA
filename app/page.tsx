@@ -7,13 +7,11 @@ import { PricingTeaserSection } from "@/components/marketing/pricing-teaser-sect
 import { FaqSection } from "@/components/marketing/faq-section";
 import { CtaSection } from "@/components/marketing/cta-section";
 import { Footer } from "@/components/marketing/footer";
-import { organizationSchema, softwareApplicationSchema } from "@/lib/seo/schemas";
-
 export default function Home() {
   return (
     <>
-      <JsonLd data={organizationSchema()} />
-      <JsonLd data={softwareApplicationSchema()} />
+      <JsonLd src="/schema/organization.json" />
+      <JsonLd src="/schema/software-application.json" />
       <MarketingNav />
       <main>
         <HeroSection />
