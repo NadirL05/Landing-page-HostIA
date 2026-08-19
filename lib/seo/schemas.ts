@@ -36,7 +36,12 @@ export interface PricingTier {
   price: number;
   description: string;
   features: readonly string[];
+  /** Stripe Payment Link (mode TEST — compte restauyacine). */
+  stripeUrl: string;
 }
+
+/** Lien de prise de RDV — même compte Calendly que le reste d'AgentImpact. */
+export const CALENDLY_URL = "https://calendly.com/nadir-lahyani-agentimpact/30min";
 
 export const PRICING_TIERS: readonly PricingTier[] = [
   {
@@ -48,6 +53,7 @@ export const PRICING_TIERS: readonly PricingTier[] = [
       "Reformulation avant validation",
       "Notification de l'équipe",
     ],
+    stripeUrl: "https://buy.stripe.com/test_bJe28scVR0Va5fb9BW3ks00",
   },
   {
     name: "Medium",
@@ -59,6 +65,7 @@ export const PRICING_TIERS: readonly PricingTier[] = [
       "Lien d'acompte automatique par SMS",
       "Gestion des modifications et annulations",
     ],
+    stripeUrl: "https://buy.stripe.com/test_eVq4gAf3ZavK0YVeWg3ks01",
   },
   {
     name: "Luxe",
@@ -70,6 +77,7 @@ export const PRICING_TIERS: readonly PricingTier[] = [
       "Appels simultanés",
       "Intégration complète aux outils de réservation existants",
     ],
+    stripeUrl: "https://buy.stripe.com/test_bJefZi9JF6fu6jf15q3ks02",
   },
 ] as const;
 

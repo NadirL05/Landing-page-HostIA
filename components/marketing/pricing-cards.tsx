@@ -1,4 +1,4 @@
-import { PRICING_TIERS, SIGNUP_URL } from "@/lib/seo/schemas";
+import { PRICING_TIERS, CALENDLY_URL } from "@/lib/seo/schemas";
 
 function CheckIcon() {
   return (
@@ -46,12 +46,19 @@ export function PricingCards({ ctaLabel = "Choisir" }: { ctaLabel?: string }) {
                 </li>
               ))}
             </ul>
-            <a href={SIGNUP_URL} className={featured ? "btn-primary" : "btn-secondary"} style={{ width: "100%" }}>
+            <a href={tier.stripeUrl} className={featured ? "btn-primary" : "btn-secondary"} style={{ width: "100%" }}>
               {ctaLabel} {tier.name}
             </a>
           </div>
         );
       })}
+      <p style={{ gridColumn: "1 / -1", textAlign: "center", fontSize: 13, color: "var(--text-tertiary)", marginTop: 8 }}>
+        Pas sûr du plan qui convient à votre restaurant ?{" "}
+        <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" style={{ textDecoration: "underline" }}>
+          Réservez un appel de 30 min
+        </a>
+        .
+      </p>
     </div>
   );
 }
