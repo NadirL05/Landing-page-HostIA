@@ -32,12 +32,18 @@ export function FaqSection() {
                 <button
                   onClick={() => toggle(i)}
                   aria-expanded={isOpen}
-                  style={{ width: "100%", display: "flex", justifyContent: "space-between", alignItems: "center", padding: "18px 0", background: "none", border: "none", cursor: "pointer", textAlign: "left", gap: 16 }}
+                  className="faq-question"
+                  style={{ width: "100%", minHeight: 44, display: "flex", justifyContent: "space-between", alignItems: "center", padding: "18px 0", background: "none", border: "none", cursor: "pointer", textAlign: "left", gap: 16 }}
                 >
-                  <span style={{ fontSize: 16, fontWeight: 500, color: "var(--text-primary)", lineHeight: "22px" }}>{item.question}</span>
+                  <span className="faq-question-text" style={{ fontSize: 16, fontWeight: 500, color: "var(--text-primary)", lineHeight: "22px", transition: "color var(--duration-fast) ease" }}>
+                    {item.question}
+                  </span>
                   <ChevronIcon open={isOpen} />
                 </button>
-                <div style={{ maxHeight: isOpen ? 300 : 0, overflow: "hidden", transition: "max-height 350ms var(--ease-spring)" }}>
+                {/* maxHeight volontairement large : la transition s'arrête à la
+                    hauteur réelle du contenu (min(maxHeight, hauteur naturelle)),
+                    donc aucune réponse — même longue — n'est jamais tronquée. */}
+                <div style={{ maxHeight: isOpen ? 800 : 0, overflow: "hidden", transition: "max-height 350ms var(--ease-spring)" }}>
                   <p style={{ fontSize: 15, lineHeight: "23px", color: "var(--text-secondary)", paddingBottom: 18 }}>{item.answer}</p>
                 </div>
               </div>

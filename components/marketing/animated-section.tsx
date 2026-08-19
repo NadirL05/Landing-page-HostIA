@@ -14,9 +14,14 @@ export function AnimatedSection({
   style?: CSSProperties;
 }) {
   const ref = useRef<HTMLElement>(null);
+  const [mounted, setMounted] = useState(false);
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
+    // On ne masque le contenu qu'une fois le JS monté — le HTML servi au
+    // premier rendu (SSR, crawlers sans exécution JS) reste toujours
+    // visible en clair, jamais opacity:0.
+    setMounted(true);
     const el = ref.current;
     if (!el) return;
     const observer = new IntersectionObserver(
@@ -32,13 +37,10 @@ export function AnimatedSection({
     return () => observer.disconnect();
   }, []);
 
+  const revealClass = mounted ? (visible ? "section-enter-active" : "section-enter") : "";
+
   return (
-    <section
-      ref={ref}
-      id={id}
-      style={style}
-      className={`${visible ? "section-enter-active" : "section-enter"} ${className}`}
-    >
+    <section ref={ref} id={id} style={style} className={`${revealClass} ${className}`}>
       {children}
     </section>
   );
