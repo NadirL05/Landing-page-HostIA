@@ -29,6 +29,15 @@
   --border-accent: rgba(160, 120, 48, 0.28);
 
   --ease-spring: cubic-bezier(0.32, 0.72, 0, 1);
+
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 450ms;
+
+  --radius-card: 28px;
+  --radius-pill: 9999px;
+
+  --space-section-y: clamp(64px, 6vw + 32px, 96px);
 }
 
 html {
@@ -127,6 +136,13 @@ body {
   }
 }
 
+/*
+ * Le contenu part masqué (opacity:0) uniquement une fois le JS monté et prêt
+ * à observer l'intersection — jamais dans le HTML servi au premier rendu.
+ * Un crawler qui n'exécute pas de JS (beaucoup de bots IA ne le font pas)
+ * voit donc toujours le contenu final, pas un état intermédiaire caché.
+ * Voir AnimatedSection : la classe n'est posée qu'après le montage.
+ */
 .section-enter {
   opacity: 0;
   transform: translateY(16px);
@@ -135,7 +151,122 @@ body {
 .section-enter-active {
   opacity: 1;
   transform: translateY(0);
-  transition: opacity 450ms var(--ease-spring), transform 450ms var(--ease-spring);
+  transition: opacity var(--duration-slow) var(--ease-spring), transform var(--duration-slow) var(--ease-spring);
+}
+
+/* Carte tarif mise en avant : effet d'échelle réservé au desktop pour éviter
+   tout débordement de la grille sur mobile (le badge "-14px" en particulier). */
+.pricing-card {
+  transition: transform var(--duration-normal) var(--ease-spring), box-shadow var(--duration-normal) var(--ease-spring), border-color var(--duration-normal) var(--ease-spring);
+}
+
+.pricing-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(160, 120, 48, 0.4);
+}
+
+@media (min-width: 768px) {
+  .pricing-card--featured {
+    transform: scale(1.04);
+  }
+
+  .pricing-card--featured:hover {
+    transform: scale(1.04) translateY(-4px);
+  }
+}
+
+.faq-question:hover .faq-question-text {
+  color: var(--color-champagne-light);
+}
+
+.nav-link {
+  position: relative;
+  transition: color var(--duration-fast) ease;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: -4px;
+  height: 1px;
+  background: var(--color-champagne);
+  transition: right var(--duration-normal) var(--ease-spring);
+}
+
+.nav-link:hover {
+  color: var(--text-primary);
+}
+
+.nav-link:hover::after {
+  right: 0;
+}
+
+.nav-menu-toggle {
+  display: flex;
+}
+
+.nav-menu-mobile {
+  animation: nav-menu-in var(--duration-normal) var(--ease-spring);
+}
+
+@keyframes nav-menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (min-width: 640px) {
+  .nav-links-desktop {
+    display: flex !important;
+  }
+  .nav-menu-toggle,
+  .nav-menu-mobile {
+    display: none !important;
+  }
+}
+
+.hero-live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #4ade80;
+  box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.6);
+  animation: hero-live-pulse 2s var(--ease-spring) infinite;
+}
+
+@keyframes hero-live-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 6px rgba(74, 222, 128, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(74, 222, 128, 0);
+  }
+}
+
+@media (min-width: 900px) {
+  .hero-grid {
+    grid-template-columns: 1.1fr 0.9fr !important;
+    gap: 64px !important;
+  }
+  .hero-visual {
+    justify-content: flex-end !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-live-dot {
+    animation: none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -144,14 +275,17 @@ body {
     transform: none;
   }
   .section-enter-active {
-    transition: opacity 150ms ease;
+    transition: opacity var(--duration-fast) ease;
   }
   .btn-primary,
-  .btn-secondary {
-    transition: opacity 150ms ease;
+  .btn-secondary,
+  .pricing-card {
+    transition: opacity var(--duration-fast) ease;
   }
   .btn-primary:hover,
-  .btn-secondary:hover {
+  .btn-secondary:hover,
+  .pricing-card:hover,
+  .pricing-card--featured:hover {
     transform: none;
   }
 }

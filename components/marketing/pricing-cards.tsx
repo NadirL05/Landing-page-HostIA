@@ -10,19 +10,21 @@ function CheckIcon() {
 
 export function PricingCards({ ctaLabel = "Choisir" }: { ctaLabel?: string }) {
   return (
-    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 16, alignItems: "center" }}>
+    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 16, alignItems: "stretch" }}>
       {PRICING_TIERS.map((tier, i) => {
         const featured = i === 1;
         return (
           <div
             key={tier.name}
-            className={featured ? "material-regular" : "material-ultrathin"}
+            className={`pricing-card ${featured ? "pricing-card--featured material-regular" : "material-ultrathin"}`}
             style={{
               borderRadius: 28,
               padding: 32,
-              transform: featured ? "scale(1.04)" : "scale(1)",
               boxShadow: featured ? "0 8px 48px rgba(160,120,48,0.14)" : "0 2px 16px rgba(26,18,9,0.06)",
               position: "relative",
+              display: "flex",
+              flexDirection: "column",
+              height: "100%",
             }}
           >
             {featured ? (
@@ -46,7 +48,7 @@ export function PricingCards({ ctaLabel = "Choisir" }: { ctaLabel?: string }) {
                 </li>
               ))}
             </ul>
-            <a href={tier.stripeUrl} className={featured ? "btn-primary" : "btn-secondary"} style={{ width: "100%" }}>
+            <a href={tier.stripeUrl} className={featured ? "btn-primary" : "btn-secondary"} style={{ width: "100%", marginTop: "auto" }}>
               {ctaLabel} {tier.name}
             </a>
           </div>
