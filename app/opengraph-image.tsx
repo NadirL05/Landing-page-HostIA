@@ -8,16 +8,16 @@ export const alt = "HostIA — L'agent vocal IA qui répond au téléphone des r
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-// Tokens copied verbatim from app/globals.css (DA HostIA v2 — "le carnet de
-// service"), not re-derived, so the share preview stays in sync with the
-// live site palette.
-const OBSIDIAN = "#0a0704";
-const OBSIDIAN_DEEP = "#120c07";
-const CHAMPAGNE = "#d9773f";
-const CHAMPAGNE_BRIGHT = "#ffb066";
-const TEXT_PRIMARY = "#fbf3e8";
-const TEXT_SECONDARY = "rgba(251, 243, 232, 0.68)";
-const BORDER_ACCENT = "rgba(217, 119, 63, 0.28)";
+// Tokens copied verbatim from app/globals.css (DA HostIA v3 — "le carnet de
+// service", fond clair), not re-derived, so the share preview stays in sync
+// with the live site palette.
+const PAGE_BG = "#faf6ef";
+const PAGE_BG_DEEP = "#f3ecdf";
+const CHAMPAGNE = "#a3481c";
+const CHAMPAGNE_BRIGHT = "#d9773f";
+const TEXT_PRIMARY = "#2b1c10";
+const TEXT_SECONDARY = "rgba(43, 28, 16, 0.72)";
+const BORDER_ACCENT = "rgba(163, 72, 28, 0.28)";
 
 export default function OpengraphImage() {
   return new ImageResponse(
@@ -31,7 +31,7 @@ export default function OpengraphImage() {
           justifyContent: "center",
           alignItems: "flex-start",
           padding: "96px",
-          background: `radial-gradient(120% 120% at 15% 10%, ${OBSIDIAN_DEEP} 0%, ${OBSIDIAN} 60%)`,
+          background: `radial-gradient(120% 120% at 15% 10%, ${PAGE_BG_DEEP} 0%, ${PAGE_BG} 60%)`,
           position: "relative",
         }}
       >
@@ -114,7 +114,7 @@ export default function OpengraphImage() {
             borderRadius: "9999px",
             border: `1px solid ${BORDER_ACCENT}`,
             fontSize: "22px",
-            color: CHAMPAGNE_BRIGHT,
+            color: CHAMPAGNE,
           }}
         >
           Dès 150€/mois · Sans engagement long
