@@ -71,11 +71,11 @@ export const PRICING_TIERS: readonly PricingTier[] = [
     name: "Luxe",
     price: 650,
     description:
-      "Medium + appels simultanés, intégration complète aux outils de réservation existants.",
+      "Medium + appels simultanés et prise de commande pour les groupes et événements.",
     features: [
       "Tout Medium",
       "Appels simultanés",
-      "Intégration complète aux outils de réservation existants",
+      "Prise de commande (groupes, événements, traiteur)",
     ],
     stripeUrl: "https://buy.stripe.com/test_bJefZi9JF6fu6jf15q3ks02",
   },
