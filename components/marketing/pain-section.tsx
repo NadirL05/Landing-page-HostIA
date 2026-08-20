@@ -29,7 +29,7 @@ export function PainSection() {
             position: "relative",
             paddingLeft: 28,
             backgroundImage:
-              "radial-gradient(circle at 8px 0, var(--color-obsidian-deep) 4px, transparent 4.5px)",
+              "radial-gradient(circle at 8px 0, var(--color-page-bg-deep) 4px, transparent 4.5px)",
             backgroundSize: "100% 44px",
             backgroundRepeat: "repeat-y",
             borderLeft: "1.5px dashed var(--border-accent)",
@@ -53,7 +53,7 @@ export function PainSection() {
                     <td style={{ padding: "22px 20px", color: "var(--text-tertiary)", fontSize: 16, lineHeight: "24px", textDecoration: "line-through", textDecorationColor: "rgba(217,119,63,0.55)", textDecorationThickness: "1.5px" }}>
                       {row[1]}
                     </td>
-                    <td style={{ padding: "22px 20px", color: "var(--color-champagne-light)", fontSize: 17, lineHeight: "24px", fontWeight: 600 }}>{row[2]}</td>
+                    <td style={{ padding: "22px 20px", color: "var(--color-champagne)", fontSize: 17, lineHeight: "24px", fontWeight: 600 }}>{row[2]}</td>
                   </tr>
                 ))}
               </tbody>

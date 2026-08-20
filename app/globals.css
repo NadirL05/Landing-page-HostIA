@@ -3,23 +3,35 @@
 @tailwind utilities;
 
 /**
- * DA HostIA v2 — "le carnet de service" : un standard téléphonique de nuit,
- * pas un dashboard SaaS. Fond obsidienne = la salle après le coup de feu,
- * lumière de bougie plutôt qu'or froid ; les données de l'appel sont
- * rendues comme des tickets de commande en papier crème (perforés, encre
- * brune, typo machine à écrire) posés sur cette nuit — pas des cartes de
- * dashboard translucides. Ce vocabulaire (ticket, standard, bougie) est
+ * DA HostIA v2.1 — "le carnet de service" : un standard téléphonique de
+ * jour, sur une nappe de papier crème plutôt qu'un dashboard SaaS. Le fond
+ * est un blanc chaud (pas un blanc froid #FFFFFF) — la nappe/le comptoir en
+ * pleine lumière de service — sur laquelle les tickets de commande en
+ * papier crème (perforés, encre brune, typo machine à écrire) restent le
+ * dispositif signature, distincts du fond par un ton et une ombre propres.
+ * La bande CTA finale reste volontairement obsidienne : un seul îlot sombre
+ * délibéré pour casser le rythme et faire respirer la hiérarchie, pas une
+ * page uniformément plate. Ce vocabulaire (ticket, standard, braise) est
  * réservé à HostIA : ni PLU-IA (urbanisme/3D) ni Hector (juridique) n'ont
  * de raison de s'en approcher.
  * Site 100% public, tokens en :root directement.
  */
 
 :root {
+  /* Conservés pour la bande CTA (îlot sombre volontaire, voir .cta-bleed)
+     et pour le texte posé sur les accents champagne (boutons, surlignage). */
   --color-obsidian: #0a0704;
   --color-obsidian-deep: #120c07;
 
-  /* Braise/bougie — plus chaud, plus rouge que l'ancien or froid. */
-  --color-champagne: #d9773f;
+  /* Fond de page — blanc chaud/crème, jamais #FFFFFF pur. */
+  --color-page-bg: #faf6ef;
+  --color-page-bg-deep: #f1e9d8;
+
+  /* Braise/bougie — variante foncée par défaut : lisible en texte sur fond
+     clair (~5.6:1 sur --color-page-bg). Les variantes -light/-bright restent
+     réservées aux fonds/gradients/dégradés décoratifs, et sont réinjectées
+     dans .cta-bleed pour retrouver l'éclat d'origine sur fond sombre. */
+  --color-champagne: #a3481c;
   --color-champagne-light: #e8874a;
   --color-champagne-bright: #ffb066;
   --color-paper: #f8f9fa;
@@ -32,11 +44,13 @@
 
   --gradient-premium: linear-gradient(135deg, #ffb066 0%, #d9773f 100%);
 
-  --text-primary: #fbf3e8;
-  --text-secondary: rgba(251, 243, 232, 0.68);
-  --text-tertiary: rgba(251, 243, 232, 0.48);
-  --border-subtle: rgba(251, 243, 232, 0.09);
-  --border-accent: rgba(217, 119, 63, 0.28);
+  /* Encre de ticket réutilisée comme texte de page : même famille de noir
+     chaud que le papier, contraste ~15:1 sur --color-page-bg. */
+  --text-primary: #2b1c10;
+  --text-secondary: rgba(43, 28, 16, 0.72);
+  --text-tertiary: rgba(43, 28, 16, 0.64);
+  --border-subtle: rgba(43, 28, 16, 0.1);
+  --border-accent: rgba(217, 119, 63, 0.34);
 
   --ease-spring: cubic-bezier(0.32, 0.72, 0, 1);
 
@@ -56,7 +70,7 @@
 }
 
 html {
-  background: var(--color-obsidian);
+  background: var(--color-page-bg);
   color: var(--text-primary);
   scroll-behavior: smooth;
 }
@@ -79,22 +93,27 @@ body {
   outline-offset: 2px;
 }
 
+/*
+ * Matériaux "verre" repensés pour un fond clair : plus de glass sombre
+ * quasi-transparent (invisible sur crème), mais du papier opaque avec une
+ * ombre chaude et un liseré fin — le même geste de lisibilité que
+ * .ticket-card, en plus discret.
+ */
 .material-ultrathin {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(217, 119, 63, 0.14);
+  background: #ffffff;
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 1px 2px rgba(43, 28, 16, 0.04), 0 16px 32px rgba(43, 28, 16, 0.07);
 }
 
 .material-regular {
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.72);
   backdrop-filter: blur(30px);
   -webkit-backdrop-filter: blur(30px);
   border: 1px solid rgba(217, 119, 63, 0.3);
 }
 
 .material-thick {
-  background: rgba(5, 5, 5, 0.75);
+  background: rgba(250, 246, 239, 0.86);
   backdrop-filter: blur(40px);
   -webkit-backdrop-filter: blur(40px);
 }
@@ -191,7 +210,7 @@ body {
 }
 
 .faq-question:hover .faq-question-text {
-  color: var(--color-champagne-light);
+  color: var(--color-champagne);
 }
 
 .nav-link {
@@ -356,12 +375,20 @@ body {
  * caisse) et la carte tarif mise en avant (ticket menu). Jamais une carte
  * de dashboard translucide générique.
  */
+/*
+ * Sur fond clair, le ticket ne se détache plus par contraste jour/nuit
+ * (papier clair sur nuit) : il lui faut son propre relief. Bordure fine +
+ * ombre chaude tirée de l'encre (pas un noir pur) simulent le papier
+ * légèrement soulevé du comptoir, tout en restant distinct du fond crème
+ * de la page — --color-ticket-paper reste plus saturé que --color-page-bg.
+ */
 .ticket-card {
   position: relative;
   background: var(--color-ticket-paper);
   color: var(--color-ticket-ink);
   border-radius: 6px;
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45), 0 1px 0 rgba(255, 255, 255, 0.4) inset;
+  border: 1px solid rgba(43, 28, 16, 0.08);
+  box-shadow: 0 24px 60px rgba(43, 28, 16, 0.18), 0 1px 0 rgba(255, 255, 255, 0.5) inset;
 }
 
 .ticket-card::before,
@@ -371,7 +398,10 @@ body {
   left: 0;
   right: 0;
   height: 14px;
-  background-image: radial-gradient(circle at 10px 50%, var(--color-obsidian) 5px, transparent 5.5px);
+  /* Les "trous" perforés doivent matcher le fond réel sur lequel le ticket
+     est posé (la page), pas une teinte fixe — sinon ils se voient comme des
+     pastilles pleines au lieu de trous. */
+  background-image: radial-gradient(circle at 10px 50%, var(--color-page-bg) 5px, transparent 5.5px);
   background-size: 20px 14px;
   background-repeat: repeat-x;
   pointer-events: none;
@@ -393,12 +423,14 @@ body {
 }
 
 /* Tampon encreur pivoté — remplace le badge pilule "le plus choisi" par un
-   vrai cachet de comptoir, cohérent avec le papier du ticket. */
+   vrai cachet de comptoir, cohérent avec le papier du ticket. Bordure en
+   braise vive (décorative), texte en braise foncée pour rester lisible sur
+   le papier crème du ticket (~4.7:1). */
 .ticket-stamp {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid var(--color-champagne);
+  border: 2px solid var(--color-champagne-light);
   color: var(--color-champagne);
   border-radius: 999px;
   transform: rotate(-8deg);
@@ -458,12 +490,25 @@ body {
   transform: skewX(-3deg);
 }
 
-/* Bande CTA finale : plein bleed, sort du conteneur 1120px pour casser la
-   symétrie répétée section après section. */
+/*
+ * Bande CTA finale : plein bleed, sort du conteneur 1120px pour casser la
+ * symétrie répétée section après section. Volontairement le seul îlot
+ * obsidienne d'une page par ailleurs claire — un temps fort de contraste en
+ * clôture plutôt qu'un aplat blanc de plus. Les tokens texte/accent sont
+ * réinjectés localement à leurs valeurs "fond sombre" d'origine (custom
+ * properties scopées) pour que .cta-bleed reste lisible sans dupliquer les
+ * composants qu'elle contient (kicker, h2, p, boutons).
+ */
 .cta-bleed {
   background: var(--color-obsidian-deep);
-  border-top: 1px solid var(--border-subtle);
-  border-bottom: 1px solid var(--border-subtle);
+  border-top: 1px solid rgba(251, 243, 232, 0.09);
+  border-bottom: 1px solid rgba(251, 243, 232, 0.09);
+  color: #fbf3e8;
+  --text-primary: #fbf3e8;
+  --text-secondary: rgba(251, 243, 232, 0.68);
+  --text-tertiary: rgba(251, 243, 232, 0.48);
+  --border-subtle: rgba(251, 243, 232, 0.09);
+  --color-champagne: #d9773f;
   position: relative;
   overflow: hidden;
 }

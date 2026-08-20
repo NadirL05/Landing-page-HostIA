@@ -20,12 +20,12 @@ const playfair = Playfair_Display({
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  // Le fond obsidienne est full-bleed derrière l'encoche/la barre de statut
-  // iOS et le geste Android : sans viewport-fit=cover, la disposition garde
-  // une marge de sécurité implicite au lieu de laisser le header/CTA fixes
-  // gérer eux-mêmes les env(safe-area-inset-*) (voir marketing-nav.tsx).
+  // Le fond crème est full-bleed derrière l'encoche/la barre de statut iOS
+  // et le geste Android : sans viewport-fit=cover, la disposition garde une
+  // marge de sécurité implicite au lieu de laisser le header/CTA fixes gérer
+  // eux-mêmes les env(safe-area-inset-*) (voir marketing-nav.tsx).
   viewportFit: "cover",
-  themeColor: "#0a0704",
+  themeColor: "#faf6ef",
 };
 
 export const metadata: Metadata = {

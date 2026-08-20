@@ -41,7 +41,7 @@ function Waveform({ height, opacity }: { height: number; opacity: number }) {
 
 export function HeroSection() {
   return (
-    <div style={{ position: "relative", overflow: "hidden", background: "var(--color-obsidian)" }}>
+    <div style={{ position: "relative", overflow: "hidden", background: "var(--color-page-bg)" }}>
       <div
         aria-hidden="true"
         style={{

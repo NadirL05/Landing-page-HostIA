@@ -86,10 +86,20 @@ export function BistroTable({ spinning }: { spinning: boolean }) {
 
   return (
     <group ref={groupRef}>
-      {/* Contact shadow — a flat dark disc, cheap stand-in for real AO. */}
-      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.001, 0]}>
-        <circleGeometry args={[1.35, 16]} />
-        <meshBasicMaterial color="#000000" transparent opacity={0.32} />
+      {/*
+        Contact shadow — deux disques emboîtés (dégradé pauvre) plutôt qu'un
+        seul disque plein : sur fond obsidiane l'ancien disque à 32% se
+        fondait dans la nuit, mais sur fond clair il lisait comme un
+        "socle" gris dur et opaque. Deux cercles à faible opacité, resserrés
+        sous le guéridon, approchent une vraie chute d'ombrage sans texture.
+      */}
+      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.0015, 0]}>
+        <circleGeometry args={[1.1, 24]} />
+        <meshBasicMaterial color="#1c1410" transparent opacity={0.1} />
+      </mesh>
+      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.002, 0]}>
+        <circleGeometry args={[0.62, 24]} />
+        <meshBasicMaterial color="#1c1410" transparent opacity={0.14} />
       </mesh>
 
       {/* Table top */}
