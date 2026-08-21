@@ -24,15 +24,19 @@ Content-Signal: ai-train=no, search=yes, ai-input=yes
 Allow: /
 
 User-Agent: GPTBot
+Content-Signal: ai-train=no, search=yes, ai-input=yes
 Allow: /
 
 User-Agent: ClaudeBot
+Content-Signal: ai-train=no, search=yes, ai-input=yes
 Allow: /
 
 User-Agent: Google-Extended
+Content-Signal: ai-train=no, search=yes, ai-input=yes
 Allow: /
 
 User-Agent: PerplexityBot
+Content-Signal: ai-train=no, search=yes, ai-input=yes
 Allow: /
 
 Sitemap: ${SITE_URL}/sitemap.xml

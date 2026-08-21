@@ -41,7 +41,7 @@ export default function PricingPage() {
           <PricingCards ctaLabel="Essayer" />
         </div>
         <div style={{ maxWidth: 680, margin: "80px auto 0" }}>
-          <FaqSection />
+          <FaqSection includeSchema={false} />
         </div>
       </main>
       <Footer />

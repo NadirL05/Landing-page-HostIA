@@ -13,13 +13,18 @@ function ChevronIcon({ open }: { open: boolean }) {
   );
 }
 
-export function FaqSection() {
+/**
+ * `includeSchema` par défaut à true (page /) — false sur /pricing pour
+ * éviter un FAQPage JSON-LD dupliqué mot pour mot sur deux URLs : la home
+ * reste la page canonique de ces 4 questions.
+ */
+export function FaqSection({ includeSchema = true }: { includeSchema?: boolean } = {}) {
   const [open, setOpen] = useState<number[]>([]);
   const toggle = (i: number) => setOpen((prev) => (prev.includes(i) ? prev.filter((x) => x !== i) : [...prev, i]));
 
   return (
     <AnimatedSection id="faq" style={{ padding: "0 20px 96px" }}>
-      <JsonLd data={faqSchema()} />
+      {includeSchema ? <JsonLd data={faqSchema()} /> : null}
       <div style={{ maxWidth: 680, margin: "0 auto" }}>
         <h2 className="font-serif" style={{ fontSize: "clamp(28px, 4vw, 40px)", lineHeight: "clamp(34px, 5vw, 46px)", fontWeight: 600, marginBottom: 40 }}>
           Questions fréquentes

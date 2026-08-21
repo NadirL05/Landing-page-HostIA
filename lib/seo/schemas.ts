@@ -18,6 +18,8 @@ export function organizationSchema() {
     "@type": "Organization",
     name: "HostIA",
     url: SITE_URL,
+    logo: `${SITE_URL}/icon-512.png`,
+    sameAs: ["https://agentimpact.fr"],
     description:
       "HostIA est un agent vocal IA en français qui répond au téléphone des restaurants indépendants, prend les réservations et notifie l'équipe.",
     areaServed: "FR",
@@ -95,6 +97,7 @@ export function softwareApplicationSchema() {
     offers: PRICING_TIERS.map((tier) => ({
       "@type": "Offer",
       name: tier.name,
+      url: `${SITE_URL}/pricing`,
       price: String(tier.price),
       priceCurrency: "EUR",
       // `billingIncrement` n'existe pas sur schema.org/Offer — la période
@@ -192,6 +195,7 @@ export function articleSchema(input: ArticleSchemaInput) {
     headline: input.title,
     description: input.description,
     url,
+    image: `${SITE_URL}/opengraph-image`,
     mainEntityOfPage: { "@type": "WebPage", "@id": url },
     datePublished: input.datePublished,
     dateModified: input.dateModified,
