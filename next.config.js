@@ -40,9 +40,20 @@ const CSP = [
   "default-src 'self'",
   "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://connect.facebook.net https://cdn.consentmanager.net https://*.delivery.consentmanager.net",
   "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data: https://www.facebook.com https://cdn.consentmanager.net",
+  // *.delivery.consentmanager.net : pixel de preuve de consentement
+  // (/delivery/info/) — bloqué silencieusement sans ce wildcard, sur chaque
+  // page vue, avant toute interaction (trouvé via audit SEO cross-repo le
+  // 21/08, confirmé en navigateur réel sur hector.agentimpact.fr — même CSP
+  // copiée sur les 3 repos, même bug partout).
+  "img-src 'self' data: https://www.facebook.com https://cdn.consentmanager.net https://*.delivery.consentmanager.net",
   "font-src 'self'",
-  "connect-src 'self' https://www.google-analytics.com https://www.facebook.com https://cdn.consentmanager.net https://*.delivery.consentmanager.net https://consentmanager.mgr.consensu.org",
+  // *.google-analytics.com / *.analytics.google.com : gtag envoie ses beacons
+  // vers des sous-domaines régionaux (region1.google-analytics.com,
+  // analytics.google.com) selon consent mode/résidence EEA — un domaine exact
+  // ne suffit pas. Trouvé par audit SEO le 21/08 (finding HIGH), même classe
+  // de bug que l'incident GA4 déjà documenté ci-dessus, corrigé avant de se
+  // matérialiser cette fois.
+  "connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://www.facebook.com https://cdn.consentmanager.net https://*.delivery.consentmanager.net https://consentmanager.mgr.consensu.org",
   "worker-src 'self' blob:",
   "frame-src 'none'",
   "object-src 'none'",
