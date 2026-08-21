@@ -20,6 +20,7 @@ function MenuIcon({ open }: { open: boolean }) {
 
 const NAV_LINKS = [
   { href: "/pricing", label: "Tarifs" },
+  { href: "/ressources", label: "Ressources" },
   { href: "/#faq", label: "FAQ" },
 ] as const;
 

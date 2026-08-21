@@ -540,6 +540,81 @@ body {
   }
 }
 
+/*
+ * Colonne de lecture longue (/ressources/[slug]) — la DA reste "carnet de
+ * service" par la palette/typo, mais un article de 900 mots a besoin d'une
+ * mesure de ligne et d'un rythme vertical qu'aucun composant existant
+ * (ticket, card) n'offre. Largeur contrainte par le conteneur parent
+ * (article-shell, 680px, identique à la colonne FAQ) — pas redéfinie ici.
+ */
+.prose-article {
+  font-size: 17px;
+  line-height: 28px;
+  color: var(--text-secondary);
+}
+
+.prose-article > * + * {
+  margin-top: 22px;
+}
+
+.prose-article h2 {
+  font-family: var(--font-playfair), Georgia, serif;
+  font-size: clamp(24px, 3vw, 30px);
+  line-height: clamp(30px, 3.4vw, 36px);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-top: 48px;
+  letter-spacing: -0.01em;
+}
+
+.prose-article h3 {
+  font-size: 19px;
+  line-height: 26px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-top: 36px;
+}
+
+.prose-article p {
+  margin: 0;
+}
+
+.prose-article strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.prose-article ul,
+.prose-article ol {
+  margin: 0;
+  padding-left: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.prose-article li {
+  padding-left: 4px;
+}
+
+.prose-article a {
+  color: var(--color-champagne);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.prose-article a:hover {
+  color: var(--color-champagne-light);
+}
+
+.prose-article blockquote {
+  margin: 0;
+  padding-left: 20px;
+  border-left: 2px solid var(--border-accent);
+  color: var(--text-tertiary);
+  font-style: italic;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .section-enter {
     opacity: 0;

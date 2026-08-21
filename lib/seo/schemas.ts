@@ -174,3 +174,29 @@ export function faqSchema(items: readonly FaqItem[] = HOSTIA_FAQ) {
     })),
   };
 }
+
+export interface ArticleSchemaInput {
+  slug: string;
+  title: string;
+  description: string;
+  datePublished: string;
+  dateModified: string;
+}
+
+/** Article JSON-LD pour /ressources/[slug]. HostIA (AgentImpact) comme auteur/éditeur : contenu édito du produit, pas une signature individuelle. */
+export function articleSchema(input: ArticleSchemaInput) {
+  const url = `${SITE_URL}/ressources/${input.slug}`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: input.title,
+    description: input.description,
+    url,
+    mainEntityOfPage: { "@type": "WebPage", "@id": url },
+    datePublished: input.datePublished,
+    dateModified: input.dateModified,
+    inLanguage: "fr",
+    author: { "@type": "Organization", name: "HostIA", url: SITE_URL },
+    publisher: { "@type": "Organization", name: "HostIA", url: SITE_URL },
+  };
+}
