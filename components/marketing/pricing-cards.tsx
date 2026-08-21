@@ -1,5 +1,5 @@
 import type { CSSProperties } from "react";
-import { PRICING_TIERS, CALENDLY_URL } from "@/lib/seo/schemas";
+import { PRICING_TIERS, CALENDLY_URL, SIGNUP_URL } from "@/lib/seo/schemas";
 
 function CheckIcon({ ink }: { ink?: boolean }) {
   return (
@@ -97,8 +97,16 @@ export function PricingCards({ ctaLabel = "Choisir" }: { ctaLabel?: string }) {
                 </li>
               ))}
             </ul>
+            {/*
+             * Le paiement direct depuis la landing (tier.stripeUrl) créerait
+             * un client Stripe sans organisation associée : le webhook
+             * (/api/stripe/webhook) n'active un compte qu'à partir d'un
+             * `orgId` posé par /api/stripe/checkout, lui-même authentifié.
+             * On route donc vers l'inscription — le paiement se fait ensuite
+             * depuis le dashboard, sur le flux qui pose réellement l'orgId.
+             */}
             <a
-              href={tier.stripeUrl}
+              href={SIGNUP_URL}
               className={featured ? "btn-primary" : "btn-secondary"}
               style={{ width: "100%", marginTop: "auto", ...(featured ? { color: "var(--color-obsidian)" } : {}) }}
             >
