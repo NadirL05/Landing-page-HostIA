@@ -19,7 +19,12 @@ export function organizationSchema() {
     name: "HostIA",
     url: SITE_URL,
     logo: `${SITE_URL}/icon-512.png`,
-    sameAs: ["https://agentimpact.fr"],
+    sameAs: ["https://agentimpact.fr", "https://www.linkedin.com/in/nadir-lahyani"],
+    founder: {
+      "@type": "Person",
+      name: "Nadir Lahyani",
+      sameAs: "https://www.linkedin.com/in/nadir-lahyani",
+    },
     description:
       "HostIA est un agent vocal IA en français qui répond au téléphone des restaurants indépendants, prend les réservations et notifie l'équipe.",
     areaServed: "FR",

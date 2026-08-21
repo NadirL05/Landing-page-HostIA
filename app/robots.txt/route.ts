@@ -19,7 +19,8 @@ import { SITE_URL } from "@/lib/seo/schemas";
  * https://blog.cloudflare.com/content-signals-policy/
  */
 export async function GET() {
-  const body = `User-Agent: *
+  const body = `License: ${SITE_URL}/rsl.xml
+User-Agent: *
 Content-Signal: ai-train=no, search=yes, ai-input=yes
 Allow: /
 
