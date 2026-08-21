@@ -36,7 +36,7 @@ export interface PricingTier {
   price: number;
   description: string;
   features: readonly string[];
-  /** Stripe Payment Link (mode TEST — compte restauyacine). */
+  /** Stripe Payment Link (mode LIVE — compte "Agentimpact - HostIA", basculé le 21/08/2026). */
   stripeUrl: string;
 }
 
@@ -53,7 +53,7 @@ export const PRICING_TIERS: readonly PricingTier[] = [
       "Reformulation avant validation",
       "Notification de l'équipe",
     ],
-    stripeUrl: "https://buy.stripe.com/test_bJe28scVR0Va5fb9BW3ks00",
+    stripeUrl: "https://buy.stripe.com/5kQ4gA9OC06q8Mk7S9cbC00",
   },
   {
     name: "Medium",
@@ -65,7 +65,7 @@ export const PRICING_TIERS: readonly PricingTier[] = [
       "Lien d'acompte automatique par SMS",
       "Gestion des modifications et annulations",
     ],
-    stripeUrl: "https://buy.stripe.com/test_eVq4gAf3ZavK0YVeWg3ks01",
+    stripeUrl: "https://buy.stripe.com/9B65kE3qe3iCd2AegxcbC01",
   },
   {
     name: "Luxe",
@@ -77,7 +77,7 @@ export const PRICING_TIERS: readonly PricingTier[] = [
       "Appels simultanés",
       "Prise de commande (groupes, événements, traiteur)",
     ],
-    stripeUrl: "https://buy.stripe.com/test_bJefZi9JF6fu6jf15q3ks02",
+    stripeUrl: "https://buy.stripe.com/3cI14o9OC4mGaUsdctcbC02",
   },
 ] as const;
 
