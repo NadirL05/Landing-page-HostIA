@@ -37,6 +37,8 @@ export function FaqSection({ includeSchema = true }: { includeSchema?: boolean }
                 <button
                   onClick={() => toggle(i)}
                   aria-expanded={isOpen}
+                  aria-controls={`faq-panel-${i}`}
+                  id={`faq-question-${i}`}
                   className="faq-question"
                   style={{ width: "100%", minHeight: 44, display: "flex", justifyContent: "space-between", alignItems: "center", padding: "18px 0", background: "none", border: "none", cursor: "pointer", textAlign: "left", gap: 16 }}
                 >
@@ -47,8 +49,20 @@ export function FaqSection({ includeSchema = true }: { includeSchema?: boolean }
                 </button>
                 {/* maxHeight volontairement large : la transition s'arrête à la
                     hauteur réelle du contenu (min(maxHeight, hauteur naturelle)),
-                    donc aucune réponse — même longue — n'est jamais tronquée. */}
-                <div style={{ maxHeight: isOpen ? 800 : 0, overflow: "hidden", transition: "max-height 350ms var(--ease-spring)" }}>
+                    donc aucune réponse — même longue — n'est jamais tronquée.
+                    Audit sécu/a11y 24/08 : id/aria-controls/aria-labelledby lient
+                    bouton et panneau (WCAG 4.1.2/1.3.1), et aria-hidden retire le
+                    panneau fermé de l'arbre d'accessibilité — auparavant lisible
+                    par lecteur d'écran même fermé. Pas l'attribut HTML `hidden`
+                    (force display:none instantané, casserait la transition
+                    max-height ci-dessous) : aria-hidden suffit pour les AT. */}
+                <div
+                  id={`faq-panel-${i}`}
+                  role="region"
+                  aria-labelledby={`faq-question-${i}`}
+                  aria-hidden={!isOpen}
+                  style={{ maxHeight: isOpen ? 800 : 0, overflow: "hidden", transition: "max-height 350ms var(--ease-spring)" }}
+                >
                   <p style={{ fontSize: 15, lineHeight: "23px", color: "var(--text-secondary)", paddingBottom: 18 }}>{item.answer}</p>
                 </div>
               </div>
