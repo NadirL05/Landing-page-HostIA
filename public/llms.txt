@@ -32,6 +32,18 @@ Trois formules mensuelles, sans engagement long :
 
 - [Accueil](https://hostia.agentimpact.fr/) : présentation, fonctionnement, FAQ.
 - [Tarifs](https://hostia.agentimpact.fr/pricing) : détail des trois formules.
+- [Ressources](https://hostia.agentimpact.fr/ressources) : articles pour
+  restaurateurs sur la gestion des appels et de la réservation.
+
+## Ressources
+
+- [Combien coûte un appel manqué dans un restaurant](https://hostia.agentimpact.fr/ressources/combien-coute-un-appel-manque-restaurant) :
+  méthode de calcul du coût d'un appel non décroché, avec vos propres chiffres.
+- [Répondre au téléphone pendant le coup de feu : ce qui marche vraiment](https://hostia.agentimpact.fr/ressources/repondre-au-telephone-pendant-le-coup-de-feu) :
+  quatre options réalistes (renvoi d'appel, répondeur avec rappel, standard
+  externalisé, agent vocal IA) et leurs compromis.
+- [IA vocale vs standardiste humain pour un restaurant : comparatif honnête](https://hostia.agentimpact.fr/ressources/ia-vocale-vs-standardiste-humain-restaurant) :
+  comparatif coût, disponibilité et ce que chaque option fait mieux.
 
 ## Contact
 

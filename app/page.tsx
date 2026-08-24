@@ -1,5 +1,5 @@
 import { JsonLd } from "@/components/seo/json-ld";
-import { organizationSchema, softwareApplicationSchema } from "@/lib/seo/schemas";
+import { organizationSchema } from "@/lib/seo/schemas";
 import { MarketingNav } from "@/components/marketing/marketing-nav";
 import { HeroSection } from "@/components/marketing/hero-section";
 import { PainSection } from "@/components/marketing/pain-section";
@@ -11,8 +11,10 @@ import { Footer } from "@/components/marketing/footer";
 export default function Home() {
   return (
     <>
+      {/* SoftwareApplication déplacé sur /pricing uniquement (audit SEO 24/08 :
+          était dupliqué mot pour mot sur / et /pricing, même pattern déjà
+          appliqué à FAQPage via includeSchema). */}
       <JsonLd data={organizationSchema()} />
-      <JsonLd data={softwareApplicationSchema()} />
       <MarketingNav />
       <main>
         <HeroSection />
