@@ -1,3 +1,5 @@
+const { withSentryConfig } = require("@sentry/nextjs");
+
 /** @type {import('next').NextConfig} */
 // Link headers (RFC 8288) sur la homepage et la page tarifs — découverte par
 // en-têtes HTTP pour les agents IA. Pas d'entrée `api-catalog` : HostIA
@@ -93,4 +95,14 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
+module.exports = withSentryConfig(nextConfig, {
+  org: "agentimpact",
+  project: "landing-hostia",
+  silent: !process.env.CI,
+  widenClientFileUpload: true,
+  tunnelRoute: "/monitoring",
+  webpack: {
+    automaticVercelMonitors: true,
+    treeshake: { removeDebugLogging: true },
+  },
+});
