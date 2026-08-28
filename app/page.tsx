@@ -3,6 +3,7 @@ import { organizationSchema } from "@/lib/seo/schemas";
 import { MarketingNav } from "@/components/marketing/marketing-nav";
 import { HeroSection } from "@/components/marketing/hero-section";
 import { PainSection } from "@/components/marketing/pain-section";
+import { RoiStripSection } from "@/components/marketing/roi-strip-section";
 import { HowItWorksSection } from "@/components/marketing/how-it-works-section";
 import { PricingTeaserSection } from "@/components/marketing/pricing-teaser-section";
 import { FaqSection } from "@/components/marketing/faq-section";
@@ -19,6 +20,7 @@ export default function Home() {
       <main>
         <HeroSection />
         <PainSection />
+        <RoiStripSection />
         <HowItWorksSection />
         <PricingTeaserSection />
         <FaqSection />

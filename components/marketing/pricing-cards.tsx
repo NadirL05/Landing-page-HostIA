@@ -1,5 +1,5 @@
 import type { CSSProperties } from "react";
-import { PRICING_TIERS, CALENDLY_URL, SIGNUP_URL } from "@/lib/seo/schemas";
+import { PRICING_TIERS, CALENDLY_URL, APP_URL } from "@/lib/seo/schemas";
 
 function CheckIcon({ ink }: { ink?: boolean }) {
   return (
@@ -98,15 +98,17 @@ export function PricingCards({ ctaLabel = "Choisir" }: { ctaLabel?: string }) {
               ))}
             </ul>
             {/*
-             * Le paiement direct depuis la landing (tier.stripeUrl) créerait
-             * un client Stripe sans organisation associée : le webhook
-             * (/api/stripe/webhook) n'active un compte qu'à partir d'un
-             * `orgId` posé par /api/stripe/checkout, lui-même authentifié.
-             * On route donc vers l'inscription — le paiement se fait ensuite
-             * depuis le dashboard, sur le flux qui pose réellement l'orgId.
+             * Paiement direct — pas de détour signup avant (audit 28/08 :
+             * un visiteur qui cliquait un forfait tombait sur la page de
+             * connexion du dashboard, aucune conversion possible). Cet
+             * endpoint crée sa propre Checkout Session Stripe (tier passé
+             * en query) avec success_url → /post-payment, qui vérifie le
+             * paiement côté serveur puis crée le compte + lie l'org à
+             * l'abonnement déjà payé. tier.stripeUrl (Payment Link) reste
+             * volontairement inutilisé — cf. commentaire sur PricingTier.
              */}
             <a
-              href={SIGNUP_URL}
+              href={`${APP_URL}/api/stripe/checkout-public?tier=${tier.key}`}
               className={featured ? "btn-primary" : "btn-secondary"}
               style={{ width: "100%", marginTop: "auto", ...(featured ? { color: "var(--color-obsidian)" } : {}) }}
             >

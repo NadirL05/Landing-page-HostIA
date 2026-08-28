@@ -39,11 +39,20 @@ export function organizationSchema() {
 }
 
 export interface PricingTier {
+  /** Doit matcher PlanTier côté app (utils/stripe.ts, repo restauyacine) — simple/medium/luxe. */
+  key: "simple" | "medium" | "luxe";
   name: string;
   price: number;
   description: string;
   features: readonly string[];
-  /** Stripe Payment Link (mode LIVE — compte "Agentimpact - HostIA", basculé le 21/08/2026). */
+  /**
+   * Payment Link Stripe (mode LIVE — compte "Agentimpact - HostIA", basculé
+   * le 21/08/2026). Non utilisé par les CTA landing (cf. pricing-cards.tsx) :
+   * un paiement Stripe direct créerait un customer sans organisation liée.
+   * Conservé pour référence/audit — le CTA réel passe par
+   * app.agentimpact.fr/api/stripe/checkout-public?tier=<key>, qui crée sa
+   * propre Checkout Session avec le bon success_url (/post-payment).
+   */
   stripeUrl: string;
 }
 
@@ -52,6 +61,7 @@ export const CALENDLY_URL = "https://calendly.com/nadir-lahyani-agentimpact/30mi
 
 export const PRICING_TIERS: readonly PricingTier[] = [
   {
+    key: "simple",
     name: "Simple",
     price: 150,
     description: "Prise de réservation par téléphone, notification de l'équipe.",
@@ -63,6 +73,7 @@ export const PRICING_TIERS: readonly PricingTier[] = [
     stripeUrl: "https://buy.stripe.com/5kQ4gA9OC06q8Mk7S9cbC00",
   },
   {
+    key: "medium",
     name: "Medium",
     price: 350,
     description:
@@ -75,6 +86,7 @@ export const PRICING_TIERS: readonly PricingTier[] = [
     stripeUrl: "https://buy.stripe.com/9B65kE3qe3iCd2AegxcbC01",
   },
   {
+    key: "luxe",
     name: "Luxe",
     price: 650,
     description:
