@@ -107,7 +107,10 @@ export default function Page() {
         <Link href="/ressources/combien-coute-un-appel-manque-restaurant">Combien coûte un appel manqué dans un restaurant</Link>{" "}
         — et de comparer les options plus en détail dans{" "}
         <Link href="/ressources/ia-vocale-vs-standardiste-humain-restaurant">IA vocale vs standardiste humain : comparatif honnête</Link>.
-        Les <Link href="/pricing">tarifs HostIA</Link> et la <Link href="/#faq">FAQ</Link> détaillent le périmètre exact de l&rsquo;agent vocal.
+        Côté agent vocal, le détail par cas d&rsquo;usage se trouve dans{" "}
+        <Link href="/prise-reservation-telephonique-restaurant">la prise de réservation téléphonique</Link> et{" "}
+        <Link href="/gestion-appels-simultanes-restaurant">la gestion des appels simultanés</Link>, l&rsquo;option qui répond directement
+        au coup de feu. Les <Link href="/pricing">tarifs HostIA</Link> et la <Link href="/#faq">FAQ</Link> détaillent le périmètre exact de l&rsquo;agent vocal.
       </p>
     </ArticleShell>
   );

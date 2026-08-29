@@ -102,6 +102,10 @@ export default function Page() {
         avant de choisir un outil pour le résoudre. Le détail des tactiques intermédiaires (renvoi d&rsquo;appel,
         répondeur, standard externalisé) est couvert dans{" "}
         <Link href="/ressources/repondre-au-telephone-pendant-le-coup-de-feu">Répondre au téléphone pendant le coup de feu</Link>.
+        Côté agent vocal, HostIA couvre trois cas d&rsquo;usage précis : la{" "}
+        <Link href="/prise-reservation-telephonique-restaurant">prise de réservation téléphonique</Link>, la{" "}
+        <Link href="/commande-telephone-restaurant">prise de commande à emporter</Link>, et la{" "}
+        <Link href="/gestion-appels-simultanes-restaurant">gestion de plusieurs appels simultanés</Link>.
         Les <Link href="/pricing">tarifs HostIA</Link> détaillent le périmètre exact par plan.
       </p>
     </ArticleShell>

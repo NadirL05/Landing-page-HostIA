@@ -5,6 +5,7 @@ import { HeroSection } from "@/components/marketing/hero-section";
 import { PainSection } from "@/components/marketing/pain-section";
 import { RoiStripSection } from "@/components/marketing/roi-strip-section";
 import { HowItWorksSection } from "@/components/marketing/how-it-works-section";
+import { UseCasesSection } from "@/components/marketing/use-cases-section";
 import { PricingTeaserSection } from "@/components/marketing/pricing-teaser-section";
 import { FaqSection } from "@/components/marketing/faq-section";
 import { CtaSection } from "@/components/marketing/cta-section";
@@ -22,6 +23,7 @@ export default function Home() {
         <PainSection />
         <RoiStripSection />
         <HowItWorksSection />
+        <UseCasesSection />
         <PricingTeaserSection />
         <FaqSection />
         <CtaSection />
