@@ -615,6 +615,15 @@ body {
   font-style: italic;
 }
 
+@media (min-width: 768px) {
+  .use-case-scope-grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+  .use-case-related-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .section-enter {
     opacity: 0;

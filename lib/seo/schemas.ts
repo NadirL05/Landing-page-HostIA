@@ -195,6 +195,45 @@ export function faqSchema(items: readonly FaqItem[] = HOSTIA_FAQ) {
   };
 }
 
+export interface WebPageSchemaInput {
+  url: string;
+  name: string;
+  description: string;
+}
+
+/** WebPage minimal — pages cas d'usage (/prise-reservation-…, /commande-…, /gestion-appels-…). */
+export function webPageSchema(input: WebPageSchemaInput) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    url: input.url,
+    name: input.name,
+    description: input.description,
+    inLanguage: "fr",
+    isPartOf: { "@type": "WebSite", name: "HostIA", url: SITE_URL },
+  };
+}
+
+export interface ServiceSchemaInput {
+  url: string;
+  name: string;
+  description: string;
+}
+
+/** Service minimal — le périmètre fonctionnel décrit correspond au contenu visible de la page, pas à une offre commerciale distincte des tarifs déjà déclarés sur /pricing. */
+export function serviceSchema(input: ServiceSchemaInput) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: input.name,
+    description: input.description,
+    url: input.url,
+    provider: { "@type": "Organization", name: "HostIA", url: SITE_URL },
+    areaServed: "FR",
+    audience: { "@type": "Audience", audienceType: "Restaurants indépendants et dark kitchens" },
+  };
+}
+
 export interface ArticleSchemaInput {
   slug: string;
   title: string;

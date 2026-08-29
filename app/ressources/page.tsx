@@ -5,6 +5,7 @@ import { MarketingNav } from "@/components/marketing/marketing-nav";
 import { Footer } from "@/components/marketing/footer";
 import { SITE_URL, breadcrumbSchema } from "@/lib/seo/schemas";
 import { ARTICLES } from "@/lib/seo/articles";
+import { USE_CASES } from "@/lib/seo/use-cases";
 
 export const metadata: Metadata = {
   title: "Ressources | HostIA",
@@ -37,7 +38,30 @@ export default function RessourcesPage() {
             Des articles pratiques sur la gestion des appels et de la réservation en restaurant — pas des fiches produit.
           </p>
         </div>
-        <div style={{ maxWidth: 780, margin: "56px auto 0", display: "flex", flexDirection: "column", gap: 20 }}>
+        <div style={{ maxWidth: 780, margin: "56px auto 0" }}>
+          <p className="font-mono" style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--text-tertiary)", marginBottom: 16 }}>
+            Cas d&rsquo;usage HostIA
+          </p>
+          <div style={{ display: "flex", flexDirection: "column", gap: 12, marginBottom: 48 }}>
+            {USE_CASES.map((useCase) => (
+              <Link
+                key={useCase.slug}
+                href={useCase.path}
+                className="material-ultrathin"
+                style={{ display: "block", borderRadius: 16, padding: "20px 24px", textDecoration: "none" }}
+              >
+                <p className="font-mono" style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.07em", textTransform: "uppercase", color: "var(--color-champagne)", marginBottom: 6 }}>
+                  {useCase.kicker}
+                </p>
+                <p style={{ fontSize: 16, fontWeight: 600, color: "var(--text-primary)" }}>{useCase.h1}</p>
+              </Link>
+            ))}
+          </div>
+          <p className="font-mono" style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--text-tertiary)", marginBottom: 16 }}>
+            Guides et articles
+          </p>
+        </div>
+        <div style={{ maxWidth: 780, margin: "0 auto", display: "flex", flexDirection: "column", gap: 20 }}>
           {ARTICLES.map((article) => (
             <Link
               key={article.slug}

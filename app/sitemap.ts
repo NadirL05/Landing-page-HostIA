@@ -1,13 +1,21 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/seo/schemas";
 import { ARTICLES } from "@/lib/seo/articles";
+import { USE_CASES } from "@/lib/seo/use-cases";
 
 const REDESIGN_DATE = new Date("2026-08-20");
+const USE_CASES_ADDED_DATE = new Date("2026-08-29");
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     { url: SITE_URL, lastModified: REDESIGN_DATE, changeFrequency: "weekly", priority: 1 },
     { url: `${SITE_URL}/pricing`, lastModified: REDESIGN_DATE, changeFrequency: "monthly", priority: 0.9 },
+    ...USE_CASES.map((useCase) => ({
+      url: `${SITE_URL}${useCase.path}`,
+      lastModified: USE_CASES_ADDED_DATE,
+      changeFrequency: "monthly" as const,
+      priority: 0.85,
+    })),
     { url: `${SITE_URL}/ressources`, lastModified: REDESIGN_DATE, changeFrequency: "monthly", priority: 0.8 },
     ...ARTICLES.map((article) => ({
       url: `${SITE_URL}/ressources/${article.slug}`,

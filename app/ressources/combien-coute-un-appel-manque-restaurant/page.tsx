@@ -95,9 +95,12 @@ export default function Page() {
         <Link href="/ressources/repondre-au-telephone-pendant-le-coup-de-feu">
           Répondre au téléphone pendant le coup de feu : ce qui marche vraiment
         </Link>{" "}
-        détaille les tactiques réalistes et leurs compromis, du renvoi d&rsquo;appel à l&rsquo;agent vocal IA. Si vous
-        regardez déjà du côté d&rsquo;un agent vocal, les{" "}
-        <Link href="/pricing">tarifs HostIA</Link> partent de 150€/mois pour la prise de réservation par téléphone.
+        détaille les tactiques réalistes et leurs compromis, du renvoi d&rsquo;appel à l&rsquo;agent vocal IA. Une
+        partie de ces appels manqués arrive d&rsquo;ailleurs au même moment — voir{" "}
+        <Link href="/gestion-appels-simultanes-restaurant">comment HostIA gère plusieurs appels simultanés</Link>.
+        Si vous regardez déjà du côté d&rsquo;un agent vocal, les{" "}
+        <Link href="/pricing">tarifs HostIA</Link> partent de 150€/mois pour la{" "}
+        <Link href="/prise-reservation-telephonique-restaurant">prise de réservation par téléphone</Link>.
       </p>
     </ArticleShell>
   );
