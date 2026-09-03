@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { SIGNUP_URL } from "@/lib/seo/schemas";
+import { DEMO_URL } from "@/lib/seo/schemas";
 
 function MenuIcon({ open }: { open: boolean }) {
   return (
@@ -95,8 +95,8 @@ export function MarketingNav() {
               {link.label}
             </Link>
           ))}
-          <a href={SIGNUP_URL} className="btn-primary" style={{ height: 38, padding: "0 20px", fontSize: 14 }}>
-            Essayer
+          <a href={DEMO_URL} className="btn-primary" style={{ height: 38, padding: "0 20px", fontSize: 14 }}>
+            Essayer gratuitement
           </a>
         </div>
 
@@ -163,8 +163,8 @@ export function MarketingNav() {
             {link.label}
           </Link>
         ))}
-        <a href={SIGNUP_URL} className="btn-primary" style={{ marginTop: 16, width: "100%" }}>
-          Essayer
+        <a href={DEMO_URL} className="btn-primary" style={{ marginTop: 16, width: "100%" }}>
+          Essayer gratuitement
         </a>
       </div>
     </header>

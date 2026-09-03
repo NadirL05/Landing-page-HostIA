@@ -133,8 +133,8 @@ export function HeroSection() {
             className="hero-stagger"
             style={{ display: "flex", gap: 12, flexWrap: "wrap", "--stagger-delay": "240ms" } as CSSProperties}
           >
-            <a href={SIGNUP_URL} className="btn-primary">Essayer HostIA</a>
-            <a href={DEMO_URL} className="btn-secondary">Écouter la démo interactive</a>
+            <a href={DEMO_URL} className="btn-primary">Essayer gratuitement</a>
+            <a href={SIGNUP_URL} className="btn-secondary">Créer un compte</a>
           </div>
         </div>
 
