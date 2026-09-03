@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test:essayer-cta": "node scripts/assert-essayer-cta-demo.mjs"
   },
   "dependencies": {
     "@react-three/fiber": "^8.18.0",

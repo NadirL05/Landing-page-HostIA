@@ -34,11 +34,11 @@ export function CtaSection() {
           Un appel qui sonne dans le vide, c&rsquo;est un client qui appelle ailleurs.
         </h2>
         <p style={{ fontSize: 16, color: "var(--text-secondary)", marginBottom: 36, lineHeight: "24px", maxWidth: 520, margin: "0 auto 36px" }}>
-          Essayez HostIA sur votre restaurant ou écoutez d&rsquo;abord la démo interactive, sans inscription.
+          Écoutez HostIA dialoguer avec un client — réservation, commande, coup de feu — sans inscription ni compte démo.
         </p>
         <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
-          <a href={SIGNUP_URL} className="btn-primary">Essayer HostIA</a>
-          <a href={DEMO_URL} className="btn-secondary">Écouter la démo</a>
+          <a href={DEMO_URL} className="btn-primary">Essayer gratuitement</a>
+          <a href={SIGNUP_URL} className="btn-secondary">Créer un compte</a>
         </div>
       </div>
     </AnimatedSection>
