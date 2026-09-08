@@ -15,44 +15,27 @@ function CheckIcon({ ink }: { ink?: boolean }) {
   );
 }
 
-/*
- * Le plan recommandé n'est pas mis en avant par une pilule flottante : il
- * est rendu comme un vrai ticket de commande en papier crème posé au milieu
- * des deux autres formules "de nuit" — la carte que le patron reconnaît
- * immédiatement, celle qu'on scotche à côté de la caisse. Les deux autres
- * plans restent en verre sombre pour que le contraste papier/nuit fasse le
- * travail de hiérarchie, pas une bordure plus épaisse.
- */
 export function PricingCards({ ctaLabel = "Choisir" }: { ctaLabel?: string }) {
   return (
-    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 24, alignItems: "stretch" }}>
+    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 280px), 1fr))", gap: 24, alignItems: "stretch" }}>
       {PRICING_TIERS.map((tier, i) => {
         const featured = i === 1;
         return (
           <div
             key={tier.name}
-            className={featured ? "pricing-card pricing-card--featured ticket-card" : "pricing-card material-ultrathin"}
+            className={featured ? "pricing-card pricing-card--featured material-ultrathin" : "pricing-card material-ultrathin"}
             style={{
-              borderRadius: featured ? 6 : 28,
-              padding: featured ? "40px 30px" : 32,
+              borderRadius: 28,
+              padding: "36px 28px",
               position: "relative",
               display: "flex",
               flexDirection: "column",
               height: "100%",
-              marginTop: featured ? 10 : 0,
-              marginBottom: featured ? 10 : 0,
+              marginTop: 0,
+              marginBottom: 0,
             }}
           >
-            {featured ? (
-              <div
-                className="ticket-stamp"
-                style={{ position: "absolute", top: 20, right: 20, width: 74, height: 74, fontSize: 10, lineHeight: "12px", textAlign: "center", padding: 4 }}
-              >
-                Le plus
-                <br />
-                choisi
-              </div>
-            ) : null}
+            {featured ? <span className="pricing-badge">Le plus choisi</span> : null}
             <p
               className="font-mono"
               style={
@@ -82,7 +65,7 @@ export function PricingCards({ ctaLabel = "Choisir" }: { ctaLabel?: string }) {
               {tier.features.map((f) => (
                 <li
                   key={f}
-                  className={featured ? "font-mono" : undefined}
+                  className="pricing-feature"
                   style={{
                     display: "flex",
                     alignItems: "flex-start",

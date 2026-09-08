@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { JsonLd } from "@/components/seo/json-ld";
 import { MarketingNav } from "@/components/marketing/marketing-nav";
 import { PricingCards } from "@/components/marketing/pricing-cards";
@@ -39,6 +40,9 @@ export default function PricingPage() {
         </div>
         <div style={{ maxWidth: 1120, margin: "56px auto 0" }}>
           <PricingCards ctaLabel="Essayer" />
+          <div style={{ textAlign: "center", marginTop: 40 }}>
+            <Link href="/en/pricing" hrefLang="en" className="btn-secondary">Voir le détail des formules (en anglais)</Link>
+          </div>
         </div>
         <div style={{ maxWidth: 680, margin: "80px auto 0" }}>
           <FaqSection includeSchema={false} />

@@ -1,6 +1,5 @@
 import type { CSSProperties } from "react";
 import { SIGNUP_URL, DEMO_URL } from "@/lib/seo/schemas";
-import { Hero3D } from "@/components/marketing/hero-scene/hero-3d";
 
 const TICKET_LINES = [
   { k: "TABLE", v: "4 · Terrasse" },
@@ -67,7 +66,7 @@ export function HeroSection() {
         style={{
           maxWidth: 1120,
           margin: "0 auto",
-          padding: "176px 20px 120px",
+          padding: "140px 20px 96px",
           display: "grid",
           gridTemplateColumns: "1fr",
           gap: 56,
@@ -111,7 +110,7 @@ export function HeroSection() {
           >
             Le téléphone sonne.
             <br />
-            HostIA <span className="hero-highlight">répond</span>.
+            HostIA <span style={{ whiteSpace: "nowrap" }}><span className="hero-highlight">répond</span>.</span>
           </h1>
 
           <p
@@ -127,7 +126,7 @@ export function HeroSection() {
               } as CSSProperties
             }
           >
-            HostIA est un agent vocal en français qui décroche le téléphone d&rsquo;un restaurant indépendant, prend la réservation, la reformule pour éviter toute erreur, envoie un lien d&rsquo;acompte par SMS et notifie l&rsquo;équipe en salle — 24 h/24, sans mobiliser personne pendant le service.
+            Offrez un accueil attentionné, même en plein service. HostIA répond en français, prend les réservations et prévient votre équipe, 24 h/24. Vous gardez toute votre attention pour vos clients en salle.
           </p>
           <div
             className="hero-stagger"
@@ -146,14 +145,6 @@ export function HeroSection() {
           de dashboard, qui doit dire "restaurant" au premier coup d'œil.
         */}
         <div className="hero-visual" style={{ display: "flex", justifyContent: "center", position: "relative", minWidth: 0 }}>
-          {/*
-            Guéridon bas-poly posé au sol obsidian, comme aperçu derrière le
-            ticket — charge en 3D uniquement une fois le hero visible
-            (voir Hero3D), masqué < 900px et sans WebGL.
-          */}
-          <div className="hero-3d-frame">
-            <Hero3D />
-          </div>
           <div
             aria-hidden="true"
             style={{
@@ -169,7 +160,7 @@ export function HeroSection() {
             style={
               {
                 width: "100%",
-                maxWidth: 300,
+                maxWidth: 340,
                 padding: "28px 26px 24px",
                 position: "relative",
                 zIndex: 1,

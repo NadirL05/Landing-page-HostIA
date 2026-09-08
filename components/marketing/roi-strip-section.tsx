@@ -1,8 +1,8 @@
 import { AnimatedSection } from "@/components/marketing/animated-section";
 
 const STATS = [
-  { value: "35-85 €", label: "perdus par appel manqué", source: "Loman, 2026" },
-  { value: "150-400", label: "appels manqués / mois en moyenne", source: "Loman, 2026" },
+  { value: "35 à 85 €", label: "perdus par appel manqué", source: "Loman, 2026" },
+  { value: "150 à 400", label: "appels manqués / mois en moyenne", source: "Loman, 2026" },
   { value: "4 050 €", label: "de revenu potentiellement perdu / mois", source: "Washington Hospitality Assoc." },
 ] as const;
 
@@ -14,7 +14,7 @@ const STATS = [
  */
 export function RoiStripSection() {
   return (
-    <AnimatedSection style={{ padding: "0 20px var(--space-section-y)" }}>
+    <AnimatedSection style={{ padding: "var(--space-section-y) 20px" }}>
       <div style={{ maxWidth: 1120, margin: "0 auto" }}>
         <p className="font-mono" style={{ fontSize: 12, fontWeight: 600, letterSpacing: "0.07em", textTransform: "uppercase", color: "var(--color-champagne)", marginBottom: 16 }}>
           Le coût d&apos;un appel manqué
@@ -39,7 +39,7 @@ export function RoiStripSection() {
           ))}
         </div>
         <p style={{ color: "var(--text-secondary)", fontSize: 15, marginTop: 24, maxWidth: 640 }}>
-          Sur une base conservative, HostIA coûte moins de 16 % du revenu potentiellement récupéré chaque mois.
+          Chaque restaurant est différent. Estimez la valeur de vos appels manqués à partir de votre ticket moyen et de votre activité.
         </p>
       </div>
     </AnimatedSection>

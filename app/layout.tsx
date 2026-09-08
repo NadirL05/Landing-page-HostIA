@@ -32,14 +32,14 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "HostIA — L'agent vocal IA qui répond au téléphone des restaurants",
+  title: "HostIA : L'agent vocal IA qui répond au téléphone des restaurants",
   description:
     "HostIA prend les appels d'un restaurant en français naturel, enregistre les réservations, envoie le lien d'acompte et notifie l'équipe. Dès 150€/mois, sans engagement long.",
   metadataBase: new URL("https://hostia.agentimpact.fr"),
   alternates: { canonical: "https://hostia.agentimpact.fr" },
   robots: { index: true, follow: true },
   openGraph: {
-    title: "HostIA — L'agent vocal IA qui répond au téléphone des restaurants",
+    title: "HostIA : L'agent vocal IA qui répond au téléphone des restaurants",
     description:
       "Prise de réservation automatisée en français, notification d'équipe, lien d'acompte par SMS. Dès 150€/mois.",
     url: "https://hostia.agentimpact.fr",
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "HostIA — L'agent vocal IA qui répond au téléphone des restaurants",
+    title: "HostIA : L'agent vocal IA qui répond au téléphone des restaurants",
     description: "Dès 150€/mois. Zéro appel manqué.",
   },
 };
@@ -83,7 +83,7 @@ export default function RootLayout({
          * ne dépendant pas de l'automatic-blocking DOM (cf. ci-dessus),
          * async est sans risque.
          */}
-        <script>{'window.cmp_setlang="FR";'}</script>
+        <script dangerouslySetInnerHTML={{ __html: 'window.cmp_setlang="FR";' }} />
         <script
           async
           type="text/javascript"

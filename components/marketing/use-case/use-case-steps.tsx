@@ -19,7 +19,7 @@ export function UseCaseSteps({ label, steps }: { label: string; steps: readonly 
         <div className="ticket-card" style={{ padding: "34px 8px 30px", margin: "0 auto", maxWidth: 480 }}>
           <div style={{ textAlign: "center", marginBottom: 18, padding: "0 28px" }}>
             <p className="font-mono" style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--color-ticket-ink)" }}>
-              — HostIA · {label} —
+              HostIA · {label}
             </p>
           </div>
           <hr className="ticket-divider" style={{ margin: "0 24px 20px" }} />
