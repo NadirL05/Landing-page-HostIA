@@ -41,7 +41,7 @@ export default function PricingPage() {
         <div style={{ maxWidth: 1120, margin: "56px auto 0" }}>
           <PricingCards ctaLabel="Essayer" />
           <div style={{ textAlign: "center", marginTop: 40 }}>
-            <Link href="/en/pricing" hrefLang="en" className="btn-secondary">Voir le détail des formules (en anglais)</Link>
+            <Link href="/pricing/details" hrefLang="fr" className="btn-secondary">Voir le détail des formules</Link>
           </div>
         </div>
         <div style={{ maxWidth: 680, margin: "80px auto 0" }}>

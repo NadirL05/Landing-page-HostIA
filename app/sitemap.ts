@@ -10,7 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     { url: SITE_URL, lastModified: REDESIGN_DATE, changeFrequency: "weekly", priority: 1 },
     { url: `${SITE_URL}/pricing`, lastModified: REDESIGN_DATE, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${SITE_URL}/en/pricing`, lastModified: new Date("2026-09-08"), changeFrequency: "monthly", priority: 0.8 },
+    { url: `${SITE_URL}/pricing/details`, lastModified: new Date("2026-09-08"), changeFrequency: "monthly", priority: 0.8 },
     ...USE_CASES.map((useCase) => ({
       url: `${SITE_URL}${useCase.path}`,
       lastModified: USE_CASES_ADDED_DATE,

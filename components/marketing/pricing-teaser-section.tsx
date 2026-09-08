@@ -14,7 +14,7 @@ export function PricingTeaserSection() {
         </p>
         <PricingCards />
         <div style={{ textAlign: "center", marginTop: 40 }}>
-          <Link href="/en/pricing" hrefLang="en" className="btn-secondary">Voir le détail des formules (en anglais)</Link>
+          <Link href="/pricing/details" hrefLang="fr" className="btn-secondary">Voir le détail des formules</Link>
         </div>
       </div>
     </AnimatedSection>
