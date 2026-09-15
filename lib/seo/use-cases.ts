@@ -111,7 +111,7 @@ export const USE_CASES: readonly UseCaseMeta[] = [
     ctaSecondaryLabel: "Créer un compte",
     ctaSecondaryHref: SIGNUP_URL,
     ctaFinalHeading: "Une réservation de moins à gérer pendant le service",
-    ctaFinalBody: "Testez le scénario de réservation sur la démo publique, sans inscription, ou créez un compte pour votre restaurant.",
+    ctaFinalBody: "Testez le scénario de réservation sur la démo publique, sans inscription, ou choisissez un abonnement pour créer le compte de votre restaurant après paiement.",
     relatedArticleSlugs: ["combien-coute-un-appel-manque-restaurant", "repondre-au-telephone-pendant-le-coup-de-feu"],
   },
   {
@@ -169,7 +169,7 @@ export const USE_CASES: readonly UseCaseMeta[] = [
     ctaSecondaryLabel: "Créer un compte",
     ctaSecondaryHref: SIGNUP_URL,
     ctaFinalHeading: "Une commande téléphonique de moins à noter à la main",
-    ctaFinalBody: "Testez le scénario de commande sur la démo publique, sans inscription, ou créez un compte pour votre restaurant.",
+    ctaFinalBody: "Testez le scénario de commande sur la démo publique, sans inscription, ou choisissez un abonnement pour créer le compte de votre restaurant après paiement.",
     relatedArticleSlugs: ["repondre-au-telephone-pendant-le-coup-de-feu", "ia-vocale-vs-standardiste-humain-restaurant"],
   },
   {

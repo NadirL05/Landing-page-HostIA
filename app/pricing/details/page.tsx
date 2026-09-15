@@ -65,6 +65,7 @@ export default function PricingDetailsPage() {
         <section className="details-terms" aria-labelledby="billing-title">
           <div><p className="section-eyebrow">Simple dès le départ</p><h2 id="billing-title" className="font-serif">Comment fonctionne la facturation</h2><p>Les prix sont en euros et la facturation est mensuelle. Le tarif dépend des fonctionnalités choisies, pas du nombre d’utilisateurs.</p></div>
           <dl>
+            <div><dt>Accès après paiement</dt><dd>Choisissez votre abonnement, réglez en ligne, puis créez le compte de votre restaurant pour accéder à l’outil.</dd></div>
             <div><dt>Abonnement flexible</dt><dd>Sans engagement à long terme. Annulez à tout moment.</dd></div>
             <div><dt>Aucun frais de mise en place</dt><dd>Pas de frais de mise en place ni de formule annuelle.</dd></div>
             <div><dt>Aucun quota de minutes</dt><dd>Les formules ne sont pas limitées à un forfait mensuel de minutes.</dd></div>

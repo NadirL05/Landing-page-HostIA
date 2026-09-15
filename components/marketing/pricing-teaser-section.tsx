@@ -11,6 +11,8 @@ export function PricingTeaserSection() {
         </h2>
         <p style={{ color: "var(--text-secondary)", fontSize: 16, marginBottom: 56 }}>
           Annulez à tout moment · Aucun frais sur les réservations
+          <br />
+          Choisissez votre abonnement, puis réglez pour créer le compte de votre restaurant.
         </p>
         <PricingCards />
         <div style={{ textAlign: "center", marginTop: 40 }}>

@@ -37,9 +37,12 @@ export default function PricingPage() {
           <p style={{ maxWidth: 560, margin: "0 auto", color: "var(--text-secondary)", fontSize: 16 }}>
             Trois formules mensuelles, sans engagement long. Le prix correspond au périmètre pris en charge, pas au nombre d&rsquo;utilisateurs.
           </p>
+          <p style={{ maxWidth: 640, margin: "20px auto 0", color: "var(--text-secondary)", fontSize: 15, lineHeight: "24px" }}>
+            Choisissez votre abonnement, réglez en ligne, puis créez le compte de votre restaurant. L&rsquo;accès à l&rsquo;outil est activé après paiement.
+          </p>
         </div>
         <div style={{ maxWidth: 1120, margin: "56px auto 0" }}>
-          <PricingCards ctaLabel="Essayer" />
+          <PricingCards />
           <div style={{ textAlign: "center", marginTop: 40 }}>
             <Link href="/pricing/details" hrefLang="fr" className="btn-secondary">Voir le détail des formules</Link>
           </div>

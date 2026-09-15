@@ -7,9 +7,10 @@
 
 export const SITE_URL = "https://hostia.agentimpact.fr";
 
-/** URL de l'app HostIA réelle (repo restauyacine), pour tout CTA. */
+/** URL de l'app HostIA réelle (repo restauyacine). */
 export const APP_URL = "https://app.agentimpact.fr";
-export const SIGNUP_URL = `${APP_URL}/signup`;
+/** L'inscription commence par le choix d'un abonnement, avant paiement et création du compte. */
+export const SIGNUP_URL = "/pricing";
 /**
  * Démo publique scriptée (dialogue client ↔ HostIA) — sans auth, sans
  * session dashboard, sans quota facturable. Cible unique des CTA

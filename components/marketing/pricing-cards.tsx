@@ -15,7 +15,7 @@ function CheckIcon({ ink }: { ink?: boolean }) {
   );
 }
 
-export function PricingCards({ ctaLabel = "Choisir" }: { ctaLabel?: string }) {
+export function PricingCards() {
   return (
     <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 280px), 1fr))", gap: 24, alignItems: "stretch" }}>
       {PRICING_TIERS.map((tier, i) => {
@@ -95,7 +95,7 @@ export function PricingCards({ ctaLabel = "Choisir" }: { ctaLabel?: string }) {
               className={featured ? "btn-primary" : "btn-secondary"}
               style={{ width: "100%", marginTop: "auto", ...(featured ? { color: "var(--color-obsidian)" } : {}) }}
             >
-              {ctaLabel} {tier.name}
+              Choisir {tier.name}
             </a>
           </div>
         );
