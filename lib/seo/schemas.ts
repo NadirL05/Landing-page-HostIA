@@ -18,6 +18,24 @@ export const SIGNUP_URL = "/pricing";
  */
 export const DEMO_URL = `${APP_URL}/demo`;
 
+export function webSiteSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "HostIA",
+    alternateName: ["HostIA Agent Vocal", "HostIA Restaurant"],
+    url: SITE_URL,
+    inLanguage: "fr",
+    publisher: {
+      "@type": "Organization",
+      name: "HostIA",
+      url: SITE_URL,
+    },
+    description:
+      "HostIA est l'agent vocal IA pour restaurants qui répond aux appels, prend les réservations et aide les équipes à ne plus manquer d'appels.",
+  };
+}
+
 export function organizationSchema() {
   return {
     "@context": "https://schema.org",
