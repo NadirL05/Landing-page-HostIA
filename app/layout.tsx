@@ -32,14 +32,14 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "HostIA : L'agent vocal IA qui répond au téléphone des restaurants",
+  title: "HostIA — Agent vocal IA pour restaurants | Réservations 24/7",
   description:
-    "HostIA prend les appels d'un restaurant en français naturel, enregistre les réservations, envoie le lien d'acompte et notifie l'équipe. Dès 150€/mois, sans engagement long.",
+    "HostIA est un agent vocal IA pour restaurants : il répond au téléphone 24/7, prend les réservations, envoie le lien d'acompte et notifie l'équipe. Dès 150€/mois.",
   metadataBase: new URL("https://hostia.agentimpact.fr"),
   alternates: { canonical: "https://hostia.agentimpact.fr" },
   robots: { index: true, follow: true },
   openGraph: {
-    title: "HostIA : L'agent vocal IA qui répond au téléphone des restaurants",
+    title: "HostIA — Agent vocal IA pour restaurants",
     description:
       "Prise de réservation automatisée en français, notification d'équipe, lien d'acompte par SMS. Dès 150€/mois.",
     url: "https://hostia.agentimpact.fr",
