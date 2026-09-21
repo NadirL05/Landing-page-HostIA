@@ -1,5 +1,5 @@
 import { JsonLd } from "@/components/seo/json-ld";
-import { organizationSchema } from "@/lib/seo/schemas";
+import { organizationSchema, webSiteSchema } from "@/lib/seo/schemas";
 import { MarketingNav } from "@/components/marketing/marketing-nav";
 import { HeroSection } from "@/components/marketing/hero-section";
 import { PainSection } from "@/components/marketing/pain-section";
@@ -17,6 +17,7 @@ export default function Home() {
           était dupliqué mot pour mot sur / et /pricing, même pattern déjà
           appliqué à FAQPage via includeSchema). */}
       <JsonLd data={organizationSchema()} />
+      <JsonLd data={webSiteSchema()} />
       <MarketingNav />
       <main>
         <HeroSection />
