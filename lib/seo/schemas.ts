@@ -23,6 +23,7 @@ export function organizationSchema() {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "HostIA",
+    alternateName: ["HostIA Agent Vocal", "HostIA Restaurant"],
     url: SITE_URL,
     logo: `${SITE_URL}/icon-512.png`,
     sameAs: ["https://agentimpact.fr", "https://www.linkedin.com/in/nadir-lahyani"],
