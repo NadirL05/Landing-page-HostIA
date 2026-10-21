@@ -110,7 +110,7 @@ export default function MentionsLegalesPage() {
                 <LegalRow label="Raison sociale">LAHYANI NADIR</LegalRow>
                 <LegalRow label="Nom commercial">AgentImpact / HostIA</LegalRow>
                 <LegalRow label="Forme juridique">Entrepreneur individuel</LegalRow>
-                <LegalRow label="Siège">200 rue de la Croix Nivert, 75015 Paris, France</LegalRow>
+                <LegalRow label="Siège">61 rue de Lyon, 75012 Paris, France</LegalRow>
                 <LegalRow label="SIREN">942 311 333</LegalRow>
                 <LegalRow label="SIRET">942 311 333 00010</LegalRow>
                 <LegalRow label="TVA intracommunautaire">FR58942311333</LegalRow>

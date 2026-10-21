@@ -142,7 +142,7 @@ export default function ConfidentialitePage() {
             <p style={paragraphStyle}>
               Le responsable du traitement des données collectées via HostIA (site
               hostia.agentimpact.fr et service d&rsquo;agent vocal) est LAHYANI NADIR, entrepreneur
-              individuel, 200 rue de la Croix Nivert, 75015 Paris. Pour toute question relative à
+              individuel, 61 rue de Lyon, 75012 Paris. Pour toute question relative à
               vos données, écrivez à{" "}
               <a href="mailto:nadir.lahyani@agentimpact.fr" style={linkStyle}>
                 nadir.lahyani@agentimpact.fr
