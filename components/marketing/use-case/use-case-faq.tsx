@@ -20,7 +20,7 @@ function ChevronIcon({ open }: { open: boolean }) {
  * lecteurs d'écran fermés, pas `hidden`/display:none) : jamais cachées
  * uniquement derrière un accordéon exécuté côté client, cf. spec §11.
  */
-export function UseCaseFaq({ id, items }: { id: string; items: readonly FaqItem[] }) {
+export function UseCaseFaq({ id, heading, items }: { id: string; heading: string; items: readonly FaqItem[] }) {
   const [open, setOpen] = useState<number[]>([]);
   const toggle = (i: number) => setOpen((prev) => (prev.includes(i) ? prev.filter((x) => x !== i) : [...prev, i]));
 
@@ -29,7 +29,7 @@ export function UseCaseFaq({ id, items }: { id: string; items: readonly FaqItem[
       <JsonLd data={faqSchema(items)} />
       <div style={{ maxWidth: 680, margin: "0 auto" }}>
         <h2 className="font-serif" style={{ fontSize: "clamp(28px, 4vw, 40px)", lineHeight: "clamp(34px, 5vw, 46px)", fontWeight: 600, marginBottom: 40 }}>
-          Questions fréquentes
+          {heading}
         </h2>
         <div>
           {items.map((item, i) => {

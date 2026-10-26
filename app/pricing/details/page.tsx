@@ -1,13 +1,19 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { APP_URL, CALENDLY_URL, PRICING_TIERS } from "@/lib/seo/schemas";
+import { JsonLd } from "@/components/seo/json-ld";
+import { APP_URL, CALENDLY_URL, PRICING_TIERS, breadcrumbSchema } from "@/lib/seo/schemas";
+import { socialMetadata } from "@/lib/seo/social";
 
 export const metadata: Metadata = {
   title: "Détail des tarifs | HostIA",
   description: "Comparez les formules HostIA : Simple à 150 €/mois, Medium à 350 €/mois et Luxe à 650 €/mois. Toutes les fonctionnalités et les modalités de facturation.",
   alternates: { canonical: "/pricing/details" },
-  openGraph: { title: "Détail des tarifs | HostIA", description: "Choisissez la formule adaptée aux appels de votre restaurant.", url: "/pricing/details", locale: "fr_FR" },
-  twitter: { title: "Détail des tarifs | HostIA", description: "Comparez Simple, Medium et Luxe. Dès 150 €/mois." },
+  ...socialMetadata({
+    title: "Détail des tarifs | HostIA",
+    description: "Choisissez la formule adaptée aux appels de votre restaurant.",
+    path: "/pricing/details",
+    twitterDescription: "Comparez Simple, Medium et Luxe. Dès 150 €/mois.",
+  }),
 };
 
 const descriptions = {
@@ -28,6 +34,14 @@ const features = [
 export default function PricingDetailsPage() {
   return (
     <div lang="fr" className="pricing-details-page">
+      {/* Audit SEO 26/10/2026 : seule page HostIA (hors accueil) sans BreadcrumbList. */}
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Accueil", path: "/" },
+          { name: "Tarifs", path: "/pricing" },
+          { name: "Détail des tarifs", path: "/pricing/details" },
+        ])}
+      />
       <header className="details-nav">
         <Link href="/" className="font-serif" aria-label="Accueil HostIA">HostIA</Link>
         <Link href="/pricing" hrefLang="fr" className="nav-link">Retour aux tarifs</Link>
@@ -79,7 +93,7 @@ export default function PricingDetailsPage() {
           <p className="details-language-note">HostIA répond aux appels de votre restaurant en français.</p>
         </section>
       </main>
-      <footer className="details-footer">© {new Date().getFullYear()} HostIA <Link href="/mentions-legales" hrefLang="fr">Mentions légales</Link><Link href="/confidentialite" hrefLang="fr">Politique de confidentialité</Link></footer>
+      <footer className="details-footer">© {new Date().getFullYear()} HostIA <Link href="/mentions-legales" hrefLang="fr">Mentions légales</Link><Link href="/confidentialite" hrefLang="fr">Politique de confidentialité</Link><a href="https://www.agentimpact.fr/">Un produit AgentImpact</a></footer>
     </div>
   );
 }

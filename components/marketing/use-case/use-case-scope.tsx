@@ -1,6 +1,8 @@
 import { AnimatedSection } from "@/components/marketing/animated-section";
 
 interface UseCaseScopeProps {
+  whatItDoesHeading: string;
+  whatItDoesNotReplaceHeading: string;
   whatItDoes: readonly string[];
   whatItDoesNotReplace: readonly string[];
 }
@@ -22,14 +24,14 @@ function DashIcon() {
 }
 
 /** "Ce que HostIA fait" / "Ce que HostIA ne remplace pas" — deux colonnes, honnêtes sur le périmètre par construction (spec §6/§21). */
-export function UseCaseScope({ whatItDoes, whatItDoesNotReplace }: UseCaseScopeProps) {
+export function UseCaseScope({ whatItDoesHeading, whatItDoesNotReplaceHeading, whatItDoes, whatItDoesNotReplace }: UseCaseScopeProps) {
   return (
     <AnimatedSection style={{ padding: "0 20px", paddingBottom: "var(--space-section-y)" }}>
       <div style={{ maxWidth: 1000, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr", gap: 40 }}>
         <div className="use-case-scope-grid" style={{ display: "grid", gridTemplateColumns: "1fr", gap: 40 }}>
           <div>
             <h2 className="font-serif" style={{ fontSize: "clamp(24px, 3vw, 30px)", fontWeight: 600, marginBottom: 20, color: "var(--text-primary)" }}>
-              Ce que HostIA fait
+              {whatItDoesHeading}
             </h2>
             <ul style={{ display: "flex", flexDirection: "column", gap: 14, listStyle: "none", margin: 0, padding: 0 }}>
               {whatItDoes.map((item) => (
@@ -42,7 +44,7 @@ export function UseCaseScope({ whatItDoes, whatItDoesNotReplace }: UseCaseScopeP
           </div>
           <div>
             <h2 className="font-serif" style={{ fontSize: "clamp(24px, 3vw, 30px)", fontWeight: 600, marginBottom: 20, color: "var(--text-primary)" }}>
-              Ce que HostIA ne remplace pas
+              {whatItDoesNotReplaceHeading}
             </h2>
             <ul style={{ display: "flex", flexDirection: "column", gap: 14, listStyle: "none", margin: 0, padding: 0 }}>
               {whatItDoesNotReplace.map((item) => (

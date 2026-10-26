@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArticleShell } from "@/components/ressources/article-shell";
 import { SITE_URL, PRICING_TIERS } from "@/lib/seo/schemas";
+import { socialMetadata } from "@/lib/seo/social";
 import { getArticle } from "@/lib/seo/articles";
 
 const meta = getArticle("ia-vocale-vs-standardiste-humain-restaurant")!;
@@ -11,12 +12,18 @@ export const metadata: Metadata = {
   description: meta.description,
   alternates: { canonical: `/ressources/${meta.slug}` },
   robots: { index: true, follow: true },
-  openGraph: {
+  ...socialMetadata({
     title: meta.title,
     description: meta.description,
-    url: `${SITE_URL}/ressources/${meta.slug}`,
+    path: `/ressources/${meta.slug}`,
     type: "article",
-  },
+    image: {
+      url: `/ressources/${meta.slug}/opengraph-image`,
+      width: 1200,
+      height: 630,
+      alt: meta.title,
+    },
+  }),
 };
 
 export default function Page() {

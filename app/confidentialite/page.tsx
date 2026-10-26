@@ -4,6 +4,7 @@ import { JsonLd } from "@/components/seo/json-ld";
 import { MarketingNav } from "@/components/marketing/marketing-nav";
 import { Footer } from "@/components/marketing/footer";
 import { SITE_URL, breadcrumbSchema } from "@/lib/seo/schemas";
+import { socialMetadata } from "@/lib/seo/social";
 
 export const metadata: Metadata = {
   title: "Politique de confidentialité | HostIA",
@@ -11,11 +12,11 @@ export const metadata: Metadata = {
     "Comment hostia.agentimpact.fr collecte, utilise et protège vos données personnelles, conformément au RGPD.",
   alternates: { canonical: "/confidentialite" },
   robots: { index: true, follow: true },
-  openGraph: {
+  ...socialMetadata({
     title: "Politique de confidentialité | HostIA",
     description: "Données collectées, sous-traitants, durées de conservation, vos droits RGPD.",
-    url: `${SITE_URL}/confidentialite`,
-  },
+    path: "/confidentialite",
+  }),
 };
 
 const linkStyle: React.CSSProperties = {
@@ -135,7 +136,7 @@ export default function ConfidentialitePage() {
             Politique de confidentialité
           </h1>
           <p style={{ fontSize: 14, color: "var(--text-tertiary)" }}>
-            Dernière mise à jour : 20 août 2026
+            Dernière mise à jour : 21 octobre 2026
           </p>
 
           <Section title="1. Responsable du traitement">

@@ -6,16 +6,17 @@ import { PricingCards } from "@/components/marketing/pricing-cards";
 import { FaqSection } from "@/components/marketing/faq-section";
 import { Footer } from "@/components/marketing/footer";
 import { SITE_URL, softwareApplicationSchema, breadcrumbSchema } from "@/lib/seo/schemas";
+import { socialMetadata } from "@/lib/seo/social";
 
 export const metadata: Metadata = {
   title: "Tarifs | HostIA",
   description: "Tarifs HostIA : Simple 150€/mois, Medium 350€/mois, Luxe 650€/mois. Agent vocal IA pour restaurant, sans engagement long.",
   alternates: { canonical: "/pricing" },
-  openGraph: {
+  ...socialMetadata({
     title: "Tarifs HostIA",
     description: "Simple 150€/mois, Medium 350€/mois, Luxe 650€/mois. Agent vocal IA pour restaurant.",
-    url: `${SITE_URL}/pricing`,
-  },
+    path: "/pricing",
+  }),
 };
 
 export default function PricingPage() {

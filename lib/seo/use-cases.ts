@@ -23,6 +23,20 @@ export interface UseCaseFaqItem {
   answer: string;
 }
 
+/**
+ * Intitulés H2 propres à chaque page (audit SEO 26/10/2026 : 6 des 7 H2
+ * étaient identiques sur les 3 pages). Reformulés uniquement à partir du
+ * contenu déjà présent sur la page concernée, sans fait nouveau.
+ */
+export interface UseCaseHeadings {
+  steps: string;
+  whatItDoes: string;
+  whatItDoesNotReplace: string;
+  faq: string;
+  relatedUseCases: string;
+  relatedArticles: string;
+}
+
 export interface UseCaseMeta {
   slug: string;
   path: string;
@@ -48,6 +62,7 @@ export interface UseCaseMeta {
   ctaFinalBody: string;
   /** Slugs de lib/seo/articles.ts — maillage §12 "depuis les articles" / "vers les articles pertinents". */
   relatedArticleSlugs: readonly string[];
+  headings: UseCaseHeadings;
 }
 
 const simpleTier = PRICING_TIERS[0];
@@ -113,6 +128,14 @@ export const USE_CASES: readonly UseCaseMeta[] = [
     ctaFinalHeading: "Une réservation de moins à gérer pendant le service",
     ctaFinalBody: "Testez le scénario de réservation sur la démo publique, sans inscription, ou choisissez un abonnement pour créer le compte de votre restaurant après paiement.",
     relatedArticleSlugs: ["combien-coute-un-appel-manque-restaurant", "repondre-au-telephone-pendant-le-coup-de-feu"],
+    headings: {
+      steps: "Comment HostIA prend une réservation au téléphone",
+      whatItDoes: "Ce que HostIA fait pour vos réservations",
+      whatItDoesNotReplace: "Les demandes de réservation qui restent à votre équipe",
+      faq: "Questions fréquentes sur la réservation téléphonique",
+      relatedUseCases: "Au-delà des réservations : commandes et appels simultanés",
+      relatedArticles: "Pour aller plus loin : appels manqués et coup de feu",
+    },
   },
   {
     slug: "commande-telephone-restaurant",
@@ -171,6 +194,14 @@ export const USE_CASES: readonly UseCaseMeta[] = [
     ctaFinalHeading: "Une commande téléphonique de moins à noter à la main",
     ctaFinalBody: "Testez le scénario de commande sur la démo publique, sans inscription, ou choisissez un abonnement pour créer le compte de votre restaurant après paiement.",
     relatedArticleSlugs: ["repondre-au-telephone-pendant-le-coup-de-feu", "ia-vocale-vs-standardiste-humain-restaurant"],
+    headings: {
+      steps: "Comment HostIA prend une commande à emporter",
+      whatItDoes: "Ce que HostIA fait pour vos commandes à emporter",
+      whatItDoesNotReplace: "Livraison, paiement, allergènes : ce que HostIA ne remplace pas",
+      faq: "Questions fréquentes sur la commande par téléphone",
+      relatedUseCases: "Au-delà des commandes : réservations et appels simultanés",
+      relatedArticles: "Pour aller plus loin : coup de feu et standardiste humain",
+    },
   },
   {
     slug: "gestion-appels-simultanes-restaurant",
@@ -226,6 +257,14 @@ export const USE_CASES: readonly UseCaseMeta[] = [
     ctaFinalHeading: "Un coup de feu, plusieurs appels, une seule équipe qui reste en salle",
     ctaFinalBody: "Écoutez le scénario d'appels simultanés sur la démo publique, sans inscription, ou comparez les offres.",
     relatedArticleSlugs: ["combien-coute-un-appel-manque-restaurant", "repondre-au-telephone-pendant-le-coup-de-feu"],
+    headings: {
+      steps: "Comment HostIA traite plusieurs appels en même temps",
+      whatItDoes: "Ce que HostIA fait pendant un pic d'appels",
+      whatItDoesNotReplace: "Les limites des appels simultanés",
+      faq: "Questions fréquentes sur les appels simultanés",
+      relatedUseCases: "Au-delà des appels simultanés : réservations et commandes",
+      relatedArticles: "Lire aussi : le coût d'un appel manqué et le coup de feu",
+    },
   },
 ] as const;
 
