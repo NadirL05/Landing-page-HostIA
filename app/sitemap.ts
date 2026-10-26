@@ -4,7 +4,6 @@ import { ARTICLES } from "@/lib/seo/articles";
 import { USE_CASES } from "@/lib/seo/use-cases";
 
 const REDESIGN_DATE = new Date("2026-08-20");
-const USE_CASES_ADDED_DATE = new Date("2026-08-29");
 // Adresse de l'éditeur modifiée le 21/10/2026 (commit 225a351) sur les
 // mentions légales et la politique de confidentialité.
 const LEGAL_ADDRESS_UPDATE = new Date("2026-10-21");
@@ -16,7 +15,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/pricing/details`, lastModified: new Date("2026-09-08"), changeFrequency: "monthly", priority: 0.8 },
     ...USE_CASES.map((useCase) => ({
       url: `${SITE_URL}${useCase.path}`,
-      lastModified: USE_CASES_ADDED_DATE,
+      // Dernier changement de contenu : H2 reformulés le 26/10/2026 (PR #14).
+      // La date suit le champ dateModified de chaque page (lib/seo/use-cases.ts).
+      lastModified: useCase.dateModified,
       changeFrequency: "monthly" as const,
       priority: 0.85,
     })),

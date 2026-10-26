@@ -84,7 +84,7 @@ export const USE_CASES: readonly UseCaseMeta[] = [
     ogDescription:
       "Prise de réservation automatisée en français, reformulation avant validation, notification d'équipe.",
     datePublished: "2026-08-29",
-    dateModified: "2026-08-29",
+    dateModified: "2026-10-26",
     ticketLabel: "Journal d'appel · Réservation",
     steps: [
       { time: "0 s", title: "Le client appelle pendant le service", body: "HostIA décroche en moins de 2 sonneries, en français naturel, même quand personne en salle n'est disponible." },
@@ -150,7 +150,7 @@ export const USE_CASES: readonly UseCaseMeta[] = [
       "HostIA prend les commandes téléphoniques d'un restaurant, reformule les informations et transmet une commande structurée à l'équipe.",
     ogDescription: "Prise de commande à emporter par téléphone, reformulation produit par produit, transmission à l'équipe.",
     datePublished: "2026-08-29",
-    dateModified: "2026-08-29",
+    dateModified: "2026-10-26",
     ticketLabel: "Journal d'appel · Commande",
     steps: [
       { time: "0 s", title: "Le client appelle pour commander", body: "HostIA décroche et comprend la demande en français naturel, sans script rigide côté client." },
@@ -216,7 +216,7 @@ export const USE_CASES: readonly UseCaseMeta[] = [
       "HostIA répond aux appels reçus pendant le coup de feu et centralise les réservations et commandes sans interrompre l'équipe du restaurant.",
     ogDescription: "Prise en charge de plusieurs appels simultanés pendant le service, centralisation des demandes.",
     datePublished: "2026-08-29",
-    dateModified: "2026-08-29",
+    dateModified: "2026-10-26",
     ticketLabel: "Journal d'appel · Appels simultanés",
     steps: [
       { time: "0 s", title: "Trois clients appellent au même moment", body: "Un vendredi soir chargé, plusieurs appels arrivent en même temps sur la ligne du restaurant." },
@@ -260,7 +260,7 @@ export const USE_CASES: readonly UseCaseMeta[] = [
     headings: {
       steps: "Comment HostIA traite plusieurs appels en même temps",
       whatItDoes: "Ce que HostIA fait pendant un pic d'appels",
-      whatItDoesNotReplace: "Les limites des appels simultanés",
+      whatItDoesNotReplace: "Capacité, secours, hors script : ce que HostIA ne remplace pas",
       faq: "Questions fréquentes sur les appels simultanés",
       relatedUseCases: "Au-delà des appels simultanés : réservations et commandes",
       relatedArticles: "Lire aussi : le coût d'un appel manqué et le coup de feu",
