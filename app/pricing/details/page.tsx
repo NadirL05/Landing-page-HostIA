@@ -1,13 +1,18 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { APP_URL, CALENDLY_URL, PRICING_TIERS } from "@/lib/seo/schemas";
+import { socialMetadata } from "@/lib/seo/social";
 
 export const metadata: Metadata = {
   title: "Détail des tarifs | HostIA",
   description: "Comparez les formules HostIA : Simple à 150 €/mois, Medium à 350 €/mois et Luxe à 650 €/mois. Toutes les fonctionnalités et les modalités de facturation.",
   alternates: { canonical: "/pricing/details" },
-  openGraph: { title: "Détail des tarifs | HostIA", description: "Choisissez la formule adaptée aux appels de votre restaurant.", url: "/pricing/details", locale: "fr_FR" },
-  twitter: { title: "Détail des tarifs | HostIA", description: "Comparez Simple, Medium et Luxe. Dès 150 €/mois." },
+  ...socialMetadata({
+    title: "Détail des tarifs | HostIA",
+    description: "Choisissez la formule adaptée aux appels de votre restaurant.",
+    path: "/pricing/details",
+    twitterDescription: "Comparez Simple, Medium et Luxe. Dès 150 €/mois.",
+  }),
 };
 
 const descriptions = {

@@ -4,6 +4,7 @@ import { JsonLd } from "@/components/seo/json-ld";
 import { MarketingNav } from "@/components/marketing/marketing-nav";
 import { Footer } from "@/components/marketing/footer";
 import { SITE_URL, breadcrumbSchema } from "@/lib/seo/schemas";
+import { socialMetadata } from "@/lib/seo/social";
 
 export const metadata: Metadata = {
   title: "Mentions légales | HostIA",
@@ -11,11 +12,11 @@ export const metadata: Metadata = {
     "Mentions légales du site hostia.agentimpact.fr : éditeur, hébergeur, propriété intellectuelle et contact.",
   alternates: { canonical: "/mentions-legales" },
   robots: { index: true, follow: true },
-  openGraph: {
+  ...socialMetadata({
     title: "Mentions légales | HostIA",
     description: "Éditeur, hébergeur, propriété intellectuelle et contact.",
-    url: `${SITE_URL}/mentions-legales`,
-  },
+    path: "/mentions-legales",
+  }),
 };
 
 const rowStyle: React.CSSProperties = {

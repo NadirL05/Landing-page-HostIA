@@ -4,6 +4,7 @@ import { JsonLd } from "@/components/seo/json-ld";
 import { MarketingNav } from "@/components/marketing/marketing-nav";
 import { Footer } from "@/components/marketing/footer";
 import { SITE_URL, breadcrumbSchema } from "@/lib/seo/schemas";
+import { socialMetadata } from "@/lib/seo/social";
 import { ARTICLES } from "@/lib/seo/articles";
 import { USE_CASES } from "@/lib/seo/use-cases";
 
@@ -12,11 +13,11 @@ export const metadata: Metadata = {
   description:
     "Articles pour restaurateurs sur la gestion des appels, la prise de réservation et l'organisation du service : coût d'un appel manqué, tactiques pendant le coup de feu, IA vocale vs standardiste humain.",
   alternates: { canonical: "/ressources" },
-  openGraph: {
+  ...socialMetadata({
     title: "Ressources HostIA",
     description: "Articles pour restaurateurs sur la gestion des appels et de la réservation.",
-    url: `${SITE_URL}/ressources`,
-  },
+    path: "/ressources",
+  }),
 };
 
 export default function RessourcesPage() {

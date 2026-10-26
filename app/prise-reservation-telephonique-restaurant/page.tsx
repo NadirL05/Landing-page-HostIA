@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { UseCasePage } from "@/components/marketing/use-case/use-case-page";
 import { UseCaseProblem } from "@/components/marketing/use-case/use-case-problem";
 import { SITE_URL } from "@/lib/seo/schemas";
+import { socialMetadata } from "@/lib/seo/social";
 import { getUseCase } from "@/lib/seo/use-cases";
 
 const meta = getUseCase("prise-reservation-telephonique-restaurant")!;
@@ -11,12 +12,11 @@ export const metadata: Metadata = {
   description: meta.metaDescription,
   alternates: { canonical: meta.path },
   robots: { index: true, follow: true },
-  openGraph: {
+  ...socialMetadata({
     title: meta.metaTitle,
     description: meta.ogDescription,
-    url: `${SITE_URL}${meta.path}`,
-    type: "website",
-  },
+    path: meta.path,
+  }),
 };
 
 export default function Page() {
