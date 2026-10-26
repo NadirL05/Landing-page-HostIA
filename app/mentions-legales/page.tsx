@@ -129,7 +129,7 @@ export default function MentionsLegalesPage() {
             <p style={paragraphStyle}>
               HostIA est un produit édité par AgentImpact, activité exercée par LAHYANI NADIR
               (entrepreneur individuel ci-dessus). Site AgentImpact :{" "}
-              <a href="https://agentimpact.fr" style={linkStyle} target="_blank" rel="noopener noreferrer">
+              <a href="https://www.agentimpact.fr/" style={linkStyle} target="_blank" rel="noopener noreferrer">
                 agentimpact.fr
               </a>
               .

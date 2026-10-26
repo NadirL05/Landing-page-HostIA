@@ -93,7 +93,7 @@ export default function PricingDetailsPage() {
           <p className="details-language-note">HostIA répond aux appels de votre restaurant en français.</p>
         </section>
       </main>
-      <footer className="details-footer">© {new Date().getFullYear()} HostIA <Link href="/mentions-legales" hrefLang="fr">Mentions légales</Link><Link href="/confidentialite" hrefLang="fr">Politique de confidentialité</Link></footer>
+      <footer className="details-footer">© {new Date().getFullYear()} HostIA <Link href="/mentions-legales" hrefLang="fr">Mentions légales</Link><Link href="/confidentialite" hrefLang="fr">Politique de confidentialité</Link><a href="https://www.agentimpact.fr/">Un produit AgentImpact</a></footer>
     </div>
   );
 }

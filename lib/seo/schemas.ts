@@ -40,7 +40,7 @@ export function organizationSchema() {
     alternateName: ["HostIA Agent Vocal", "HostIA Restaurant"],
     url: SITE_URL,
     logo: `${SITE_URL}/icon-512.png`,
-    sameAs: ["https://agentimpact.fr", "https://www.linkedin.com/in/nadir-lahyani"],
+    sameAs: ["https://www.agentimpact.fr/", "https://www.linkedin.com/in/nadir-lahyani"],
     founder: {
       "@type": "Person",
       name: "Nadir Lahyani",

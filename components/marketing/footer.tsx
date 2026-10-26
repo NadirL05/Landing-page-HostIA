@@ -21,7 +21,12 @@ export function Footer() {
         ·{" "}
         <Link href="/confidentialite" style={footerLinkStyle}>
           Politique de confidentialité
-        </Link>
+        </Link>{" "}
+        ·{" "}
+        {/* Lien éditeur (audit SEO 26/10/2026) : HostIA ne liait www.agentimpact.fr que depuis les mentions légales. */}
+        <a href="https://www.agentimpact.fr/" style={footerLinkStyle}>
+          Un produit AgentImpact
+        </a>
       </p>
     </footer>
   );
