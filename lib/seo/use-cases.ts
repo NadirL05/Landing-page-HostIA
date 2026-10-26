@@ -260,7 +260,7 @@ export const USE_CASES: readonly UseCaseMeta[] = [
     headings: {
       steps: "Comment HostIA traite plusieurs appels en même temps",
       whatItDoes: "Ce que HostIA fait pendant un pic d'appels",
-      whatItDoesNotReplace: "Les limites des appels simultanés",
+      whatItDoesNotReplace: "Capacité, secours, hors script : ce que HostIA ne remplace pas",
       faq: "Questions fréquentes sur les appels simultanés",
       relatedUseCases: "Au-delà des appels simultanés : réservations et commandes",
       relatedArticles: "Lire aussi : le coût d'un appel manqué et le coup de feu",
