@@ -136,7 +136,7 @@ export default function ConfidentialitePage() {
             Politique de confidentialité
           </h1>
           <p style={{ fontSize: 14, color: "var(--text-tertiary)" }}>
-            Dernière mise à jour : 20 août 2026
+            Dernière mise à jour : 21 octobre 2026
           </p>
 
           <Section title="1. Responsable du traitement">

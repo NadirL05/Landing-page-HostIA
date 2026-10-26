@@ -5,6 +5,9 @@ import { USE_CASES } from "@/lib/seo/use-cases";
 
 const REDESIGN_DATE = new Date("2026-08-20");
 const USE_CASES_ADDED_DATE = new Date("2026-08-29");
+// Adresse de l'éditeur modifiée le 21/10/2026 (commit 225a351) sur les
+// mentions légales et la politique de confidentialité.
+const LEGAL_ADDRESS_UPDATE = new Date("2026-10-21");
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
@@ -24,7 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly" as const,
       priority: 0.7,
     })),
-    { url: `${SITE_URL}/mentions-legales`, lastModified: REDESIGN_DATE, changeFrequency: "yearly", priority: 0.3 },
-    { url: `${SITE_URL}/confidentialite`, lastModified: REDESIGN_DATE, changeFrequency: "yearly", priority: 0.3 },
+    { url: `${SITE_URL}/mentions-legales`, lastModified: LEGAL_ADDRESS_UPDATE, changeFrequency: "yearly", priority: 0.3 },
+    { url: `${SITE_URL}/confidentialite`, lastModified: LEGAL_ADDRESS_UPDATE, changeFrequency: "yearly", priority: 0.3 },
   ];
 }
