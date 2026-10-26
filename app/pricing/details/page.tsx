@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { APP_URL, CALENDLY_URL, PRICING_TIERS } from "@/lib/seo/schemas";
+import { JsonLd } from "@/components/seo/json-ld";
+import { APP_URL, CALENDLY_URL, PRICING_TIERS, breadcrumbSchema } from "@/lib/seo/schemas";
 import { socialMetadata } from "@/lib/seo/social";
 
 export const metadata: Metadata = {
@@ -33,6 +34,14 @@ const features = [
 export default function PricingDetailsPage() {
   return (
     <div lang="fr" className="pricing-details-page">
+      {/* Audit SEO 26/10/2026 : seule page HostIA (hors accueil) sans BreadcrumbList. */}
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Accueil", path: "/" },
+          { name: "Tarifs", path: "/pricing" },
+          { name: "Détail des tarifs", path: "/pricing/details" },
+        ])}
+      />
       <header className="details-nav">
         <Link href="/" className="font-serif" aria-label="Accueil HostIA">HostIA</Link>
         <Link href="/pricing" hrefLang="fr" className="nav-link">Retour aux tarifs</Link>
