@@ -8,12 +8,12 @@ import type { UseCaseStep } from "@/lib/seo/use-cases";
  * mesure produite par le système : garder le total chiffré aurait suggéré
  * une précision non vérifiée).
  */
-export function UseCaseSteps({ label, steps }: { label: string; steps: readonly UseCaseStep[] }) {
+export function UseCaseSteps({ heading, label, steps }: { heading: string; label: string; steps: readonly UseCaseStep[] }) {
   return (
     <AnimatedSection style={{ padding: "0 20px", paddingBottom: "var(--space-section-y)" }}>
       <div style={{ maxWidth: 720, margin: "0 auto" }}>
         <h2 className="font-serif" style={{ fontSize: "clamp(28px, 4vw, 40px)", lineHeight: "clamp(34px, 5vw, 46px)", fontWeight: 600, marginBottom: 48, textAlign: "center" }}>
-          Comment se déroule un appel
+          {heading}
         </h2>
 
         <div className="ticket-card" style={{ padding: "34px 8px 30px", margin: "0 auto", maxWidth: 480 }}>

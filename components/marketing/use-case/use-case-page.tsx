@@ -35,12 +35,17 @@ export function UseCasePage({ meta, children }: { meta: UseCaseMeta; children: R
       <main>
         <UseCaseHero meta={meta} />
         {children}
-        <UseCaseSteps label={meta.ticketLabel} steps={meta.steps} />
-        <UseCaseScope whatItDoes={meta.whatItDoes} whatItDoesNotReplace={meta.whatItDoesNotReplace} />
-        <UseCaseFaq id={`faq-${meta.slug}`} items={meta.faq} />
+        <UseCaseSteps heading={meta.headings.steps} label={meta.ticketLabel} steps={meta.steps} />
+        <UseCaseScope
+          whatItDoesHeading={meta.headings.whatItDoes}
+          whatItDoesNotReplaceHeading={meta.headings.whatItDoesNotReplace}
+          whatItDoes={meta.whatItDoes}
+          whatItDoesNotReplace={meta.whatItDoesNotReplace}
+        />
+        <UseCaseFaq id={`faq-${meta.slug}`} heading={meta.headings.faq} items={meta.faq} />
         <UseCaseCtaFinal meta={meta} />
-        <RelatedUseCases items={relatedUseCases(meta.slug)} />
-        <RelatedArticles slugs={meta.relatedArticleSlugs} />
+        <RelatedUseCases heading={meta.headings.relatedUseCases} items={relatedUseCases(meta.slug)} />
+        <RelatedArticles heading={meta.headings.relatedArticles} slugs={meta.relatedArticleSlugs} />
       </main>
       <Footer />
     </>
