@@ -2,7 +2,7 @@
   "name": "hostia-vitrine",
   "main": "cloudflare/worker.mjs",
   "compatibility_date": "2026-11-26",
-  "workers_dev": false,
+  "workers_dev": true,
   "preview_urls": false,
   "assets": {
     "binding": "ASSETS",
