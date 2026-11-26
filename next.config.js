@@ -63,7 +63,9 @@ const CSP = [
   "form-action 'self'",
 ].join("; ");
 
+const workerBuild = process.env.HOSTIA_WORKER_BUILD === "1";
 const nextConfig = {
+  ...(workerBuild ? { output: "export", env: { NEXT_PUBLIC_HOSTIA_SENTRY_TUNNEL: "/monitoring" } } : {}),
   async headers() {
     return [
       {
@@ -100,7 +102,7 @@ module.exports = withSentryConfig(nextConfig, {
   project: "landing-hostia",
   silent: !process.env.CI,
   widenClientFileUpload: true,
-  tunnelRoute: "/monitoring",
+  tunnelRoute: workerBuild ? undefined : "/monitoring",
   webpack: {
     automaticVercelMonitors: true,
     treeshake: { removeDebugLogging: true },
